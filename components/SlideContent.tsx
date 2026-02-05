@@ -959,7 +959,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
             <div className="w-full bg-white px-20 py-10 shadow-xl shrink-0 mt-10 border border-slate-200 rounded-[2.5rem] relative overflow-hidden group text-center">
               <div className="absolute inset-0 bg-blue-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500" />
+
 
               <div className="relative z-10 flex flex-col items-center gap-4">
                 <h4 className="text-3xl font-black text-[#111] tracking-tight">Visionary One-Team Strategy</h4>

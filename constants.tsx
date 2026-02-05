@@ -66,10 +66,10 @@ export const SLIDES: SlideData[] = [
     type: 'image-grid',
     content: "각 엔진별 답변에서 우리 브랜드의 실질적 인용(Citation) 여부를 확인합니다.",
     images: [
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800", // ChatGPT
-      "https://images.unsplash.com/photo-1676299081847-c0326a0333d5?auto=format&fit=crop&q=80&w=800", // Claude
-      "https://images.unsplash.com/photo-1684495033285-05562723c345?auto=format&fit=crop&q=80&w=800", // Gemini
-      "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=800"  // Perplexity
+      "/5-1.png",
+      "/5-2.png",
+      "/5-3.png",
+      "/5-4.png"
     ],
     items: [
       { label: "ChatGPT-4o", value: "노출 순위 2위 / 기술적 인용 부재" },
