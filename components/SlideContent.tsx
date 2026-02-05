@@ -474,13 +474,10 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                   <h2 className="text-5xl font-[950] text-[#111] tracking-tighter leading-none">
                     {slide.title}
                   </h2>
-                  <p className="text-slate-400 font-bold text-sm mt-2 uppercase tracking-[0.2em]">{slide.subtitle}</p>
+                  <p className="text-slate-500 font-bold text-[20px] mt-2 tracking-tight">{slide.subtitle}</p>
                 </div>
               </div>
-              <div className="bg-white/50 backdrop-blur-md px-6 py-3 rounded-full border border-white/50 shadow-sm flex items-center gap-3">
-                <MousePointer2 size={16} className="text-[#0055FF]" />
-                <span className="text-[18px] font-black text-slate-500 uppercase tracking-widest">Interactive Dashboard</span>
-              </div>
+
             </div>
 
             <div className="grid grid-cols-3 gap-8 flex-1 min-h-0 relative z-10">
