@@ -1022,23 +1022,119 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
               </div>
               <button
                 onClick={closeModal}
-                className="p-4 hover:bg-white/10 rounded-full transition-colors"
+                className="p-4 hover:bg-white/10 rounded-full transition-colors flex items-center gap-2 group/close"
               >
+                <span className="text-sm font-bold uppercase tracking-widest opacity-0 group-hover/close:opacity-100 transition-opacity">Close</span>
                 <X className="w-10 h-10" />
               </button>
             </div>
-            <div className="p-12 overflow-y-auto flex-1 custom-scrollbar">
-              <div className="bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-inner relative">
-                <p className="text-[20px] font-medium text-slate-700 leading-relaxed whitespace-pre-line">
-                  {selectedDeliverable.example}
-                </p>
+
+            <div className="p-12 overflow-y-auto flex-1 custom-scrollbar bg-slate-50/50">
+              {/* Document/Report Paper */}
+              <div className="bg-white mx-auto max-w-4xl min-h-full shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-lg p-16 border border-slate-200">
+                <div className="space-y-8">
+                  {selectedDeliverable.example.split('\n').map((line, idx) => {
+                    const trimmedLine = line.trim();
+
+                    // Main Title or Header with Icon
+                    if (trimmedLine.startsWith('## ')) {
+                      return (
+                        <div key={idx} className="pb-4 border-b-4 border-blue-600 mb-10">
+                          <h2 className="text-4xl font-[950] text-slate-900 tracking-tighter flex items-center gap-4">
+                            {trimmedLine.replace('## ', '')}
+                          </h2>
+                        </div>
+                      );
+                    }
+
+                    // Sub-headings
+                    if (trimmedLine.startsWith('### ')) {
+                      return (
+                        <h3 key={idx} className="text-2xl font-[900] text-slate-800 mt-12 mb-6 flex items-center gap-3">
+                          <div className="w-2 h-8 bg-blue-500 rounded-full" />
+                          {trimmedLine.replace('### ', '')}
+                        </h3>
+                      );
+                    }
+
+                    // Insight Callouts
+                    if (trimmedLine.startsWith('> 💡')) {
+                      return (
+                        <div key={idx} className="my-8 bg-blue-50 border-l-8 border-blue-500 p-8 rounded-r-2xl">
+                          <div className="flex gap-4">
+                            <Sparkles className="w-8 h-8 text-blue-500 shrink-0" />
+                            <p className="text-[20px] font-bold text-blue-900 leading-relaxed italic">
+                              {trimmedLine.replace('> 💡', '').trim()}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    // Blockquotes (general)
+                    if (trimmedLine.startsWith('>')) {
+                      return (
+                        <div key={idx} className="my-6 p-6 bg-slate-50 rounded-2xl border border-slate-200 italic font-bold text-slate-600 text-[19px]">
+                          {trimmedLine.replace('>', '').trim()}
+                        </div>
+                      );
+                    }
+
+                    // Bullet points
+                    if (trimmedLine.startsWith('- ')) {
+                      return (
+                        <div key={idx} className="flex items-start gap-4 mb-3 pl-4">
+                          <div className="mt-2.5 w-2 h-2 rounded-full bg-slate-300 shrink-0" />
+                          <p className="text-[20px] font-bold text-slate-600 leading-relaxed">
+                            {trimmedLine.substring(2)}
+                          </p>
+                        </div>
+                      );
+                    }
+
+                    // Bold inline text (basic Markdown-lite replacement for common labels)
+                    const content = line.split(/(\*\*.*?\*\*)/).map((part, pIdx) => {
+                      if (part.startsWith('**') && part.endsWith('**')) {
+                        return <strong key={pIdx} className="text-slate-900 font-extrabold">{part.slice(2, -2)}</strong>;
+                      }
+                      return part;
+                    });
+
+                    // Horizontal Line
+                    if (trimmedLine === '---') {
+                      return <hr key={idx} className="my-10 border-slate-100" />;
+                    }
+
+                    // Empty lines
+                    if (!trimmedLine) return <div key={idx} className="h-4" />;
+
+                    // Normal Paragraph
+                    return (
+                      <p key={idx} className="text-[20px] font-medium text-slate-600 leading-relaxed">
+                        {content}
+                      </p>
+                    );
+                  })}
+                </div>
+
+                {/* Report Footer Decoration */}
+                <div className="mt-20 pt-10 border-t border-slate-100 flex justify-between items-center text-slate-400">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded bg-slate-100 flex items-center justify-center">
+                      <ShieldCheck size={16} />
+                    </div>
+                    <span className="text-xs font-black uppercase tracking-widest">Confidential Strategy Document</span>
+                  </div>
+                  <span className="text-xs font-black uppercase tracking-widest">Page 01 / 01</span>
+                </div>
               </div>
-              <div className="mt-10 flex justify-center">
+
+              <div className="mt-12 flex justify-center pb-12">
                 <button
                   onClick={closeModal}
-                  className="group flex items-center gap-4 px-12 py-5 bg-blue-600 text-white rounded-2xl font-black text-lg hover:bg-blue-700 transition-all shadow-xl hover:shadow-blue-200"
+                  className="group flex items-center gap-4 px-12 py-5 bg-slate-900 text-white rounded-2xl font-black text-lg hover:bg-[#0055FF] transition-all shadow-xl hover:shadow-blue-200/50"
                 >
-                  상세 내용 확인 완료
+                  리포트 내용 확인 완료
                   <CheckCircle2 size={24} className="group-hover:scale-125 transition-transform" />
                 </button>
               </div>
