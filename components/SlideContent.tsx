@@ -1009,7 +1009,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
       {/* Global Deliverable Modal */}
       {selectedDeliverable && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-8 bg-slate-900/40 backdrop-blur-md slide-enter">
-          <div className="bg-white/80 backdrop-blur-2xl w-full max-w-3xl rounded-[3rem] shadow-2xl overflow-hidden border border-white/40">
+          <div className="bg-white/90 backdrop-blur-2xl w-full max-w-4xl max-h-[90vh] rounded-[3rem] shadow-2xl overflow-hidden border border-white/40 flex flex-col">
             <div className="bg-slate-900 px-12 py-10 flex items-center justify-between text-white">
               <div className="flex items-center gap-6">
                 <div className="p-4 bg-blue-500 rounded-2xl">
@@ -1027,16 +1027,13 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                 <X className="w-10 h-10" />
               </button>
             </div>
-            <div className="p-16 space-y-10">
-              <div className="space-y-6">
-                <div className="bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-inner relative group">
-                  <Quote className="absolute top-8 left-8 text-blue-100 group-hover:text-blue-200 transition-colors w-16 h-16" />
-                  <p className="text-3xl font-[800] text-slate-800 leading-relaxed whitespace-pre-line relative z-10 pl-6">
-                    {selectedDeliverable.example}
-                  </p>
-                </div>
+            <div className="p-12 overflow-y-auto flex-1 custom-scrollbar">
+              <div className="bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-inner relative">
+                <p className="text-[20px] font-medium text-slate-700 leading-relaxed whitespace-pre-line">
+                  {selectedDeliverable.example}
+                </p>
               </div>
-              <div className="flex justify-center">
+              <div className="mt-10 flex justify-center">
                 <button
                   onClick={closeModal}
                   className="group flex items-center gap-4 px-12 py-5 bg-blue-600 text-white rounded-2xl font-black text-lg hover:bg-blue-700 transition-all shadow-xl hover:shadow-blue-200"
