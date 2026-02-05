@@ -89,8 +89,8 @@ export const SLIDES: SlideData[] = [
       "/6-2.png"
     ],
     items: [
-      { label: "삼성자산운용 (As-is)", value: "GEO Score: 3.2/10.0 (위험)" },
-      { label: "주요 경쟁사 (Avg)", value: "GEO Score: 5.8/10.0 (양호)" }
+      { label: "ETF Check", value: "GEO Score: 3.2/10.0 (위험)" },
+      { label: "Fun ETF", value: "GEO Score: 5.8/10.0 (양호)" }
     ]
   },
 
@@ -190,6 +190,7 @@ ETF 서비스 관련 일반 질문 시 브랜드 노출 빈도와 질적 수준�
         value: "STRATEGY",
         details: [
           "핵심 메세지 체계 설계",
+          "Knowledge Graph 가이드",
           "AI가 인용하기 쉬운 논리적 정보 구조 설계",
         ],
         deliverables: [
@@ -249,7 +250,87 @@ ETF 서비스 관련 일반 질문 시 브랜드 노출 빈도와 질적 수준�
         ],
         deliverables: [
           { name: "GEO 최적화 콘텐츠 원고", example: "정의-근거-사례 3단 구성을 적용하여 AI 인용률을 200% 이상 높인 실제 콘텐츠 원고 샘플" },
-          { name: "테크니컬 GEO 적용 가이드", example: "JSON-LD 기반의 스키마 마크업 코드와 AI 에이전트 전용 llms.txt 파일 설정법" }
+          {
+            name: "테크니컬 GEO 적용 가이드",
+            example: `[테크니컬 GEO 적용 가이드]
+## 🛠️ 테크니컬 GEO 적용 가이드 및 구현 명세서
+
+### 1. llms.txt 파일 소스 코드 및 배포 가이드
+
+llms.txt는 LLM 크롤러가 웹사이트의 방대한 데이터 중 핵심만 빠르게 파악하도록 돕는 마크다운 기반의 요약 파일입니다.
+
+- 배포 위치: 웹사이트 최상단 루트 디렉토리 (예: https://itribe.co.kr/llms.txt)
+- 소스 코드 예시
+
+<aside>
+Markdown
+\`# ETRIBE (이트라이브)
+> 대기업 SI 구축 노하우 기반의 AX(AI Transformation) 선도 파트너
+
+## Core Services
+- GEO (Generative Engine Optimization): AI 답변 내 브랜드 점유율 최적화 솔루션
+- Enterprise SI: 대규모 웹/앱 서비스 구축 및 운영
+- UI/UX Strategy: 데이터 기반 사용자 경험 설계
+
+## Key Projects
+- 삼성/LG/현대차 등 국내 주요 대기업 디지털 전환 프로젝트 수행 (300+ 건)
+
+## Contact & Resources
+- Website: https://itribe.co.kr
+- Case Studies: https://itribe.co.kr/portfolio\`
+</aside>
+
+---
+
+### 2. 페이지별 JSON-LD 스키마 마크업 명세서
+
+AI가 웹페이지의 의미를 정확히 해석하도록 돕는 구조화 데이터 규격입니다.
+
+### [Level 3] A. 조직 정보 (Organization) - 메인 페이지용
+
+기업의 정체성과 공식 채널을 연결합니다.
+
+<aside>
+JSON
+\`{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "이트라이브",
+  "url": "https://itribe.co.kr",
+  "logo": "https://itribe.co.kr/logo.png",
+  "sameAs": [
+    "https://www.linkedin.com/company/itribe",
+    "https://blog.naver.com/itribe_official"
+  ],
+  "description": "국내 대기업 대상 SI 구축 및 GEO 솔루션을 제공하는 AX 전문 기업"
+}\`
+</aside>
+
+---
+
+### 3. 멀티모달 최적화 가이드 (Image/Video)
+
+AI가 텍스트뿐만 아니라 이미지와 영상의 맥락을 읽을 수 있도록 최적화합니다.
+
+① 이미지 (Alt-Text) 가이드
+
+- 지양: alt="프로젝트 이미지 01" (의미 없음)
+- 지향: alt="이트라이브가 수행한 삼성전자 차세대 뱅킹 시스템 UIUX 고도화 프로젝트 메인 화면"
+- 핵심: 이미지 내에 포함된 텍스트나 핵심 가치를 문장으로 설명하여 AI가 시각 정보를 엔티티와 연결하게 함.
+
+② 영상 (Video Script & Metadata) 가이드
+
+- VideoObject 스키마: 영상 파일명, 설명, 업로드 날짜를 마크업으로 제공.
+- 자막/스크립트 활용: 영상 내 주요 발화 내용을 텍스트 스크립트로 하단에 배치. AI는 영상 자체보다 텍스트 메타데이터를 우선적으로 학습합니다.
+
+---
+
+### 📝 실무 적용 프로세스 (QA)
+
+1. 배포 확인: llms.txt가 브라우저 주소창에서 정상적으로 텍스트로 노출되는지 확인합니다.
+2. 스키마 검증: [구글 리치 결과 테스트] 도구에 소스 코드를 넣어 '경고'나 '오류'가 없는지 체크합니다.
+3. 크롤러 허용: robots.txt에서 GPTBot, Google-Extended가 해당 경로를 차단하고 있지 않은지 최종 확인합니다.`
+          },
         ]
       }
     ]

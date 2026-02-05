@@ -1115,13 +1115,56 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                           </div>
                         );
                       }
-                      // Bullet points
-                      else if (trimmedLine.startsWith('- ')) {
+                      // Aside Callouts
+                      else if (trimmedLine.startsWith('<aside>')) {
+                        const asideContent = [];
+                        i++;
+                        while (i < lines.length && !lines[i].trim().startsWith('</aside>')) {
+                          asideContent.push(lines[i]);
+                          i++;
+                        }
+                        renderedElements.push(
+                          <div key={i} className="my-8 bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-inner overflow-x-auto">
+                            {asideContent.map((aLine, aIdx) => {
+                              const aTrimmed = aLine.trim();
+                              if (aTrimmed.startsWith('`')) {
+                                return (
+                                  <pre key={aIdx} className="text-[16px] font-mono text-blue-600 leading-relaxed whitespace-pre-wrap">
+                                    {aTrimmed.replace(/`/g, '')}
+                                  </pre>
+                                );
+                              }
+                              return (
+                                <p key={aIdx} className="text-[18px] font-black text-slate-800 mb-2 uppercase tracking-widest bg-blue-100/50 inline-block px-3 py-1 rounded-lg">
+                                  {aTrimmed}
+                                </p>
+                              );
+                            })}
+                          </div>
+                        );
+                      }
+                      // Numbered lists
+                      else if (/^\d+\./.test(trimmedLine)) {
                         renderedElements.push(
                           <div key={i} className="flex items-start gap-4 mb-4 pl-4">
-                            <div className="mt-2.5 w-2.5 h-2.5 rounded-full bg-blue-400 shrink-0 shadow-sm" />
-                            <p className="text-[20px] font-bold text-slate-600 leading-relaxed">
-                              {trimmedLine.substring(2)}
+                            <div className="mt-1 w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm font-black shrink-0 shadow-lg">
+                              {trimmedLine.split('.')[0]}
+                            </div>
+                            <div className="flex-1">
+                              <p className="text-[20px] font-black text-slate-900 leading-relaxed pt-0.5">
+                                {trimmedLine.split('.').slice(1).join('.').trim()}
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      }
+                      // Bullet points
+                      else if (trimmedLine.startsWith('- ') || trimmedLine.startsWith('①') || trimmedLine.startsWith('②')) {
+                        renderedElements.push(
+                          <div key={i} className="flex items-start gap-4 mb-4 pl-4">
+                            <div className="mt-2.5 w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0 shadow-sm" />
+                            <p className="text-[20px] font-bold text-slate-800 leading-relaxed">
+                              {trimmedLine.startsWith('- ') ? trimmedLine.substring(2) : trimmedLine}
                             </p>
                           </div>
                         );
@@ -1130,7 +1173,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                         renderedElements.push(
                           <div key={i} className="flex items-start gap-4 mb-3 pl-12 opacity-80">
                             <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
-                            <p className="text-[18px] font-semibold text-slate-500 leading-relaxed">
+                            <p className="text-[19px] font-semibold text-slate-600 leading-relaxed">
                               {trimmedLine.substring(4)}
                             </p>
                           </div>
@@ -1146,9 +1189,12 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                       }
                       // Normal Paragraph
                       else {
-                        const content = line.split(/(\*\*.*?\*\*)/).map((part, pIdx) => {
+                        const content = line.split(/(\*\*.*?\*\*|`.*?`)/).map((part, pIdx) => {
                           if (part.startsWith('**') && part.endsWith('**')) {
                             return <strong key={pIdx} className="text-slate-900 font-extrabold">{part.slice(2, -2)}</strong>;
+                          }
+                          if (part.startsWith('`') && part.endsWith('`')) {
+                            return <code key={pIdx} className="bg-slate-100 text-blue-600 px-2 py-0.5 rounded font-mono text-[17px] font-bold">{part.slice(1, -1)}</code>;
                           }
                           return part;
                         });
