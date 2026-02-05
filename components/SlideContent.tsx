@@ -949,27 +949,22 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                 </p>
               </div>
 
-              <div className="flex items-center gap-16 pt-10">
+              <div className="flex items-center gap-10 pt-10">
                 {slide.items?.map((item, idx) => {
                   const MainIcon = loopIcons[idx];
                   return (
                     <React.Fragment key={idx}>
                       <div className="flex flex-col items-center group">
-                        <div className="w-80 bg-white border border-slate-200 rounded-[3.5rem] p-12 flex flex-col items-center text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-blue-500 hover:-translate-y-4">
+                        <div className="w-96 bg-white border border-slate-200 rounded-[3.5rem] p-12 flex flex-col items-center text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-blue-500 hover:-translate-y-4">
                           <div className="w-28 h-28 bg-[#F0F5FF] rounded-[2.5rem] flex items-center justify-center text-[#0055FF] mb-10 shadow-inner group-hover:bg-[#0055FF] group-hover:text-white transition-all duration-300">
                             <MainIcon className="w-14 h-14 stroke-[2.5]" />
                           </div>
 
                           <h4 className="text-3xl font-black text-[#111] mb-4 tracking-tight group-hover:text-[#0055FF] transition-colors">{item.label}</h4>
                           <div className="w-16 h-1.5 bg-blue-100 mb-6 group-hover:w-28 group-hover:bg-blue-500 transition-all duration-300" />
-                          <p className="text-[17px] font-bold text-slate-500 leading-relaxed whitespace-pre-line group-hover:text-slate-700 transition-colors">{item.value}</p>
+                          <p className="text-[20px] font-bold text-slate-500 leading-relaxed whitespace-pre-line group-hover:text-slate-700 transition-colors">{item.value}</p>
                         </div>
                       </div>
-                      {idx < (slide.items?.length || 0) - 1 && (
-                        <div className="flex flex-col items-center gap-4 opacity-20">
-                          <ArrowRight className="w-14 h-14 text-[#0055FF] stroke-[4]" />
-                        </div>
-                      )}
                     </React.Fragment>
                   );
                 })}
