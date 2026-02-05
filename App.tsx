@@ -58,7 +58,7 @@ const App: React.FC = () => {
       <div className={`fixed inset-0 z-50 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:flex flex-col w-72 bg-white border-r border-slate-200 shadow-sm flex-shrink-0`}>
         <div className="p-6 border-b border-slate-100 flex justify-between items-center">
           <div className="flex items-center">
-            <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
+            <img src="/logo.png" alt="Logo" className="h-6 w-auto" />
           </div>
           <button onClick={() => setIsSidebarOpen(false)} className="md:hidden">
             <X className="w-6 h-6 text-slate-400" />
