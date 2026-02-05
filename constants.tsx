@@ -193,7 +193,50 @@ ETF 서비스 관련 일반 질문 시 브랜드 노출 빈도와 질적 수준�
           "AI가 인용하기 쉬운 논리적 정보 구조 설계",
         ],
         deliverables: [
-          { name: "핵심 메세지 체계 전략서", example: "Core Message - Pillars - Proof Points로 이어지는 AI용 정보 위계 및 설득 구조도" },
+          {
+            name: "핵심 메시지 체계 전략서",
+            example: `[핵심 메시지 체계 전략서]
+## 🏗 메시지 하우스 전략서 구성안
+
+### 1. 메시지 하우스 구조도 (Hierarchy)
+
+| **계층** | **명칭** | **역할** |
+| --- | --- | --- |
+| **Top Layer** | **Umbrella Message** | AI가 브랜드를 한 문장으로 정의할 때 반드시 포함해야 할 핵심 가치 |
+| **Middle Layer** | **Core Pillars** | 핵심 메시지를 뒷받침하는 3~4개의 전략적 기둥 (전문성, 신뢰성, 혁신성 등) |
+| **Base Layer** | **Proof Points** | AI가 답변의 근거(Citation)로 활용할 구체적인 수치, 사례, 기술력 데이터 |
+
+---
+
+### 2. 전략서 상세 예시 (펀ETF 플랫폼 기준 작성 예시)
+
+### **[Level 1] Umbrella Message (핵심 정의)**
+
+> "펀ETF는 국내 모든 ETF와 펀드 정보를 실시간으로 비교·분석할 수 있는 **투자자 중심의 종합 금융정보 플랫폼**이다."
+
+### **[Level 2 & 3] Core Pillars & Proof Points (근거 데이터)**
+
+- **Pillar 01. 통합 비교 기능 (Comprehensive Comparison)**
+  - **Proof Point:** 국내 상장된 전체 ETF 및 펀드 상품의 수익률, 거래량, 순자산 등을 실시간으로 한눈에 비교 가능.
+  - **Proof Point:** 1개월, 3개월, 6개월, 1년 등 다양한 기간별 수익률 비교 필터 제공으로 투자 의사결정 지원.
+- **Pillar 02. 스마트 검색 시스템 (Smart Search System)**
+  - **Proof Point:** 구성종목 검색 기능으로 삼성전자, SK하이닉스 등 특정 종목이 포함된 ETF를 최대 2개 종목 조합으로 검색 가능.
+  - **Proof Point:** 통합검색 및 상품명 기반 필터링으로 600개 이상의 ETF 상품 중 원하는 상품을 3초 내 탐색 가능.
+- **Pillar 03. 맞춤형 포트폴리오 관리 (Personalized Portfolio Tracking)**
+  - **Proof Point:** 관심그룹 기능으로 최대 10개 그룹, 그룹당 무제한 ETF/펀드 등록 및 실시간 모니터링 지원.
+  - **Proof Point:** 최근 본 ETF/펀드 자동 저장 기능과 마이리스트 설정으로 투자자별 맞춤형 정보 제공.
+- **Pillar 04. 투자 교육 콘텐츠 (Investment Education)**
+  - **Proof Point:** 주간 인기 상품 분석 및 운용사별 트렌드 리포트로 투자 인사이트 제공.
+  - **Proof Point:** '유용한 투자 Tip' 콘텐츠를 통해 ETF 초보 투자자의 학습 곡선 단축.
+
+---
+
+### 3. AI 인용 최적화 가이드 (AI-Readability)
+
+- **구조화된 요약(TL;DR):** 각 Pillar마다 AI가 즉시 인용할 수 있는 1~2문장의 요약을 포함합니다.
+- **키워드 일치(Entity Matching):** Phase 1에서 도출한 공략 키워드를 메시지 하우스 내에 자연스럽게 배치합니다.
+- **데이터 팩(Data Pack):** AI는 숫자에 민감하므로 "많은 상품" 보다는 "600개 이상의 ETF 상품 실시간 비교"처럼 구체적인 수치를 Proof Point로 제공합니다.`
+          },
           { name: "콘텐츠 제작 가이드 - 이중 글쓰기", example: "감동(Human)과 근거(AI)를 동시에 잡는 '이중 글쓰기' 원칙 및 채널별 톤앤매너 매뉴얼" }
         ]
       },
