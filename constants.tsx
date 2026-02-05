@@ -89,8 +89,8 @@ export const SLIDES: SlideData[] = [
       "/6-2.png"
     ],
     items: [
-      { label: "ETF Check", value: "GEO Score: 3.2/10.0 (위험)" },
-      { label: "Fun ETF", value: "GEO Score: 5.8/10.0 (양호)" }
+      { label: "ETF Check", value: "GEO Score: 11/100 (미흡)" },
+      { label: "Fun ETF", value: "GEO Score: 64/100 (보통)" }
     ]
   },
 

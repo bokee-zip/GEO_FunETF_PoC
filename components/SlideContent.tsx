@@ -154,12 +154,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                     {/* Overlay Gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                    {/* Badge */}
-                    <div className="absolute top-6 left-6 z-20">
-                      <span className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-[20px] font-[900] text-[#0055FF] shadow-sm uppercase tracking-widest">
-                        CAP 0{idx + 1}
-                      </span>
-                    </div>
+
 
                     {/* Hover Content */}
                     <div className="absolute bottom-0 inset-x-0 p-10 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-10">
