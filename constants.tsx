@@ -5,7 +5,7 @@ export const SLIDES: SlideData[] = [
   /* --- SECTION 0: 제안서 도입부 --- */
   {
     id: 0,
-    title: "[삼성자산운용 Fun ETF GEO 최적화 제안]",
+    title: "[FunETF GEO 최적화 제안]",
     subtitle: "AI 시대의 브랜드 정보 주권 확보 및 디지털 영향력 극대화를 위한 전략적 GEO 도입",
     type: 'title',
     content: " "

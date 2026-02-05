@@ -57,9 +57,8 @@ const App: React.FC = () => {
       {/* Sidebar Navigation */}
       <div className={`fixed inset-0 z-50 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:flex flex-col w-72 bg-white border-r border-slate-200 shadow-sm flex-shrink-0`}>
         <div className="p-6 border-b border-slate-100 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#0055FF] rounded-lg flex items-center justify-center text-white font-bold">G</div>
-            <span className="font-extrabold text-lg tracking-tight text-[#111]">GEO Strategy</span>
+          <div className="flex items-center">
+            <img src="/logo.png" alt="Logo" className="h-10 w-auto" />
           </div>
           <button onClick={() => setIsSidebarOpen(false)} className="md:hidden">
             <X className="w-6 h-6 text-slate-400" />
@@ -90,7 +89,7 @@ const App: React.FC = () => {
         <div className="p-6 border-t border-slate-100">
           <div className="flex items-center gap-2 text-[11px] text-slate-400 font-medium">
             <Monitor className="w-3.5 h-3.5" />
-            <span>SAMSUNG ASSET MGMT</span>
+            <span>FunETF</span>
           </div>
         </div>
       </div>
