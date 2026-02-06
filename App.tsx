@@ -1,26 +1,15 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import {
   ChevronLeft,
   ChevronRight,
-  Layout,
-  Settings,
-  Zap,
-  Menu,
-  X,
-  Hammer,
-  Play,
-  Monitor,
-  Info,
-  BarChart2,
-  User
+  Maximize2
 } from 'lucide-react';
 import SlideContent from './components/SlideContent';
 import { SLIDES } from './constants';
 
 const App: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [showControls, setShowControls] = useState(false);
 
   const handleNext = useCallback(() => {
     if (currentSlide < SLIDES.length - 1) {
@@ -35,8 +24,10 @@ const App: React.FC = () => {
   }, [currentSlide]);
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'ArrowRight' || e.key === ' ') handleNext();
-    if (e.key === 'ArrowLeft') handlePrev();
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') handleNext();
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') handlePrev();
+    if (e.key === 'Home') setCurrentSlide(0);
+    if (e.key === 'End') setCurrentSlide(SLIDES.length - 1);
   }, [handleNext, handlePrev]);
 
   useEffect(() => {
@@ -44,155 +35,79 @@ const App: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [handleKeyDown]);
 
-  const sectionStarts = [1, 3, 6, 9];
-
-  const getSlideNumber = (index: number) => {
-    if (index === 0) return "Cover";
-    const sectionIdx = sectionStarts.filter(s => s <= index).length;
-    if (sectionIdx === 0) return "";
-    const startIdx = sectionStarts[sectionIdx - 1];
-    if (index === startIdx) return `${sectionIdx}`;
-    return `${sectionIdx}-${index - startIdx}`;
-  };
-
-  const getSectionLabel = (index: number) => {
-    if (index === 0) return "Introduction";
-    if (index <= 2) return "1. GEO 개요";
-    if (index <= 5) return "2. 현황 분석";
-    if (index <= 8) return "3. 구축 가이드";
-    return "4. 운영 매뉴얼";
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const handleTouchStart = (e: React.TouchEvent) => setTouchStart(e.touches[0].clientX);
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStart) return;
+    const touchEnd = e.changedTouches[0].clientX;
+    const diff = touchStart - touchEnd;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) handleNext();
+      else handlePrev();
+    }
+    setTouchStart(null);
   };
 
   return (
-    <div className="flex h-screen bg-[#F8F9FB] overflow-hidden text-slate-900 font-['Pretendard']">
-      {/* Sidebar Navigation */}
-      <div className={`fixed inset-0 z-50 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:relative md:translate-x-0 md:flex flex-col w-72 bg-white border-r border-slate-200 shadow-sm flex-shrink-0`}>
-        <div className="p-6 border-b border-slate-100 flex justify-between items-center">
-          <div className="flex items-center">
-            <img src="/logo.png" alt="Logo" className="h-6 w-auto" />
-          </div>
-          <button onClick={() => setIsSidebarOpen(false)} className="md:hidden">
-            <X className="w-6 h-6 text-slate-400" />
-          </button>
-        </div>
-        <div className="flex-1 overflow-y-auto p-4 space-y-1 custom-scrollbar">
-          {SLIDES.map((slide, idx) => (
-            <button
-              key={slide.id}
-              onClick={() => {
-                setCurrentSlide(idx);
-                setIsSidebarOpen(false);
-              }}
-              className={`w-full text-left px-4 py-3 rounded-xl text-[13px] transition-all duration-200 group ${currentSlide === idx
-                ? 'bg-[#F0F5FF] text-[#0055FF] font-bold'
-                : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900'
-                }`}
-            >
-              <div className="flex gap-3">
-                <span className={`text-[11px] font-black mt-0.5 min-w-[28px] ${currentSlide === idx ? 'text-[#0055FF]' : 'text-slate-400'}`}>
-                  {getSlideNumber(idx)}
-                </span>
-                <span className="truncate">{slide.title}</span>
-              </div>
-            </button>
-          ))}
-        </div>
-        <div className="p-6 border-t border-slate-100">
-          <div className="flex items-center gap-2 text-[11px] text-slate-400 font-medium">
-            <Monitor className="w-3.5 h-3.5" />
-            <span>FunETF</span>
-          </div>
-        </div>
+    <div
+      className="h-screen w-screen bg-[#F4F1ED] overflow-hidden select-none"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onMouseMove={() => {
+        setShowControls(true);
+        const timer = setTimeout(() => setShowControls(false), 3000);
+        return () => clearTimeout(timer);
+      }}
+    >
+      {/* Slide Progress Bar (Top) */}
+      <div className="fixed top-0 left-0 w-full h-1 z-50">
+        <div
+          className="h-full bg-[#4A362D] transition-all duration-300 ease-out"
+          style={{ width: `${((currentSlide + 1) / SLIDES.length) * 100}%` }}
+        />
       </div>
 
-      {/* Main Content Area */}
-      <div className="flex-1 flex flex-col relative min-w-0 h-screen bg-[#F8F9FB]">
-        <header className="flex-shrink-0 bg-white border-b border-slate-200">
-          <div className="flex items-center h-14 px-8">
-            <div className="flex h-full">
-              {[
-                { label: "1. GEO 개요", range: [1, 2], icon: Info },
-                { label: "2. 현황 분석", range: [3, 5], icon: BarChart2 },
-                { label: "3. 구축 가이드", range: [6, 8], icon: Hammer },
-                { label: "4. 운영 매뉴얼", range: [9, SLIDES.length - 1], icon: Play }
-              ].map((tab) => {
-                const isActive = currentSlide >= tab.range[0] && currentSlide <= tab.range[1];
-                return (
-                  <div
-                    key={tab.label}
-                    onClick={() => setCurrentSlide(tab.range[0])}
-                    className={`px-6 h-full flex items-center gap-2 text-[14px] font-bold cursor-pointer transition-all relative ${isActive ? "text-[#0055FF]" : "text-slate-400 hover:text-slate-600"
-                      }`}
-                  >
-                    {tab.label}
-                    {isActive && <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#0055FF] rounded-t-full" />}
-                  </div>
-                );
-              })}
-            </div>
-            <div className="flex-1" />
-            <div className="flex items-center gap-4">
-              <span className="text-[11px] font-bold text-slate-300 tracking-wider">STRATEGIC PROPOSAL v1.2</span>
-              <div className="h-4 w-px bg-slate-200" />
-              <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
-                <Settings className="w-4 h-4 text-slate-400" />
-              </div>
-            </div>
+      {/* Main Slide Area - Full Screen Coverage */}
+      <main className="h-full w-full relative">
+        <div className="w-full h-full bg-white overflow-hidden relative slide-enter">
+          <div className="absolute inset-0 px-12 py-10 md:px-24 md:py-20 overflow-y-auto custom-scrollbar">
+            <SlideContent slide={SLIDES[currentSlide]} />
           </div>
 
-          <div className="h-12 flex items-center justify-between px-8 bg-slate-50/50">
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setIsSidebarOpen(true)}
-                className="md:hidden p-1.5 hover:bg-slate-200 rounded-lg transition-colors"
-              >
-                <Menu className="w-5 h-5" />
-              </button>
-              <div className="flex items-center gap-3">
-                <span className="text-[#0055FF] text-[10px] font-black px-2.5 py-0.5 rounded bg-blue-50 border border-blue-100 uppercase tracking-tight">
-                  {getSectionLabel(currentSlide)}
-                </span>
-                <span className="text-slate-300 text-xs font-medium">/</span>
-                <span className="text-slate-800 text-xs font-extrabold tracking-tight">{SLIDES[currentSlide].title}</span>
-              </div>
-            </div>
+          {/* Page Number */}
+          <div className="absolute bottom-10 right-12 text-[14px] font-bold text-[#4A362D]/40 tabular-nums">
+            <span className="text-[#4A362D]">{String(currentSlide + 1).padStart(2, '0')}</span>
+            <span className="mx-2 opacity-50">/</span>
+            <span>{String(SLIDES.length).padStart(2, '0')}</span>
           </div>
-        </header>
 
-        <main className="flex-1 overflow-hidden relative">
-          <div className="h-full w-full p-12 slide-enter overflow-y-auto custom-scrollbar">
-            <div className="max-w-[1440px] mx-auto h-full">
-              <SlideContent slide={SLIDES[currentSlide]} />
-            </div>
+          {/* Logo Mark */}
+          <div className="absolute bottom-10 left-12 flex items-center gap-3 opacity-40">
+            <div className="w-5 h-5 rounded-sm bg-[#C5A059]" />
+            <span className="text-[12px] font-black tracking-[0.3em] text-[#4A362D]">STRATEGIC GEO</span>
           </div>
-        </main>
+        </div>
+      </main>
 
-        <footer className="h-16 flex items-center justify-end px-8 bg-white border-t border-slate-200 flex-shrink-0">
+      {/* Navigation Controls */}
+      <div className={`fixed inset-y-0 left-0 w-24 flex items-center justify-center transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}>
+        <button
+          onClick={handlePrev}
+          disabled={currentSlide === 0}
+          className="p-4 rounded-full bg-white/80 backdrop-blur shadow-lg border border-[#4A362D]/5 text-[#4A362D]/40 hover:text-[#4A362D] hover:scale-110 transition-all disabled:opacity-30 disabled:hover:scale-100"
+        >
+          <ChevronLeft size={24} />
+        </button>
+      </div>
 
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-2">
-              <button
-                onClick={handlePrev}
-                disabled={currentSlide === 0}
-                className={`p-2 rounded-full border border-slate-200 transition-all ${currentSlide === 0 ? 'opacity-30' : 'hover:bg-slate-50 hover:border-slate-300 text-slate-600'}`}
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={handleNext}
-                disabled={currentSlide === SLIDES.length - 1}
-                className={`p-2 rounded-full border border-slate-200 transition-all ${currentSlide === SLIDES.length - 1 ? 'opacity-30' : 'hover:bg-[#0055FF] hover:border-[#0055FF] hover:text-white text-slate-600'}`}
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="text-[13px] font-bold text-slate-900 tabular-nums min-w-[60px] text-right">
-              <span className="text-[#0055FF]">{currentSlide + 1}</span>
-              <span className="text-slate-300 mx-1.5">/</span>
-              <span className="text-slate-400">{SLIDES.length}</span>
-            </div>
-          </div>
-        </footer>
+      <div className={`fixed inset-y-0 right-0 w-24 flex items-center justify-center transition-opacity duration-300 ${showControls ? 'opacity-100' : 'opacity-0'}`}>
+        <button
+          onClick={handleNext}
+          disabled={currentSlide === SLIDES.length - 1}
+          className="p-4 rounded-full bg-white/80 backdrop-blur shadow-lg border border-[#4A362D]/5 text-[#4A362D]/40 hover:text-[#4A362D] hover:scale-110 transition-all disabled:opacity-30 disabled:hover:scale-100"
+        >
+          <ChevronRight size={24} />
+        </button>
       </div>
     </div>
   );
