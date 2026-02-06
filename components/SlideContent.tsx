@@ -32,10 +32,10 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
     switch (slide.type) {
       case 'title':
         return (
-          <div className="h-full flex flex-col justify-center items-start text-left space-y-12 py-10 px-10">
+          <div className="flex flex-col justify-center items-start text-left space-y-12 py-20 px-10">
             <div className="space-y-6">
-              <h2 className="text-[#0055FF] text-3xl font-black tracking-tighter">
-                FunETF <span className="text-slate-900 mx-2">×</span> ETRIBE
+              <h2 className="text-[#C05D17] text-3xl font-black tracking-tighter">
+                FunETF <span className="text-[#4A362D] mx-2">×</span> ETRIBE
               </h2>
               <h1 className="text-7xl md:text-8xl font-black tracking-tighter text-[#111] leading-[1.05] max-w-5xl">
                 {slide.title}
@@ -44,8 +44,8 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                 {slide.subtitle}
               </p>
             </div>
-            <div className="w-full h-1 bg-gradient-to-r from-[#0055FF] to-blue-50" />
-            <div className="max-w-3xl text-slate-900 text-2xl font-black leading-relaxed whitespace-pre-line bg-white/50 p-8 rounded-2xl border border-slate-100">
+            <div className="w-full h-1 bg-gradient-to-r from-[#C05D17] to-[#F5F3EF]" />
+            <div className="max-w-3xl text-[#4A362D] text-2xl font-black leading-relaxed whitespace-pre-line bg-white/50 p-8 rounded-2xl border border-[#D6C7B9]">
               {slide.content}
             </div>
           </div>
@@ -55,7 +55,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
       case 'scale-up':
         return (
-          <div className="h-full flex flex-col space-y-10">
+          <div className="flex flex-col space-y-10 py-10">
             <div className="flex flex-col space-y-2">
               <h2 className="text-5xl font-[950] text-[#111] tracking-tighter">{slide.title}</h2>
               <p className="text-slate-500 font-bold text-xl">{slide.subtitle}</p>
@@ -66,8 +66,8 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
               {slide.items?.map((item, idx) => {
                 const height = idx === 0 ? 'h-[320px]' : idx === 1 ? 'h-[400px]' : 'h-[480px]';
-                const accent = idx === 0 ? 'bg-blue-600' : idx === 1 ? 'bg-purple-600' : 'bg-emerald-600';
-                const textAccent = idx === 0 ? 'text-blue-600' : idx === 1 ? 'text-purple-600' : 'text-emerald-600';
+                const accent = idx === 0 ? 'bg-[#C05D17]' : idx === 1 ? 'bg-[#4A362D]' : 'bg-[#988476]';
+                const textAccent = idx === 0 ? 'text-[#C05D17]' : idx === 1 ? 'text-[#4A362D]' : 'text-[#988476]';
 
                 return (
                   <div key={idx} className="relative flex flex-col justify-end group z-10">
@@ -107,12 +107,12 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
             <div className="bg-slate-900 p-8 rounded-[2.5rem] flex items-center gap-10 shadow-2xl relative overflow-hidden group">
               <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-              <div className="flex-shrink-0 w-20 h-20 bg-blue-600 rounded-3xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+              <div className="flex-shrink-0 w-20 h-20 bg-[#C05D17] rounded-3xl flex items-center justify-center text-white shadow-lg shadow-[#C05D17]/30">
                 <Repeat className="w-10 h-10 animate-[spin_4s_linear_infinite]" />
               </div>
               <div className="flex-1">
                 <p className="text-2xl font-black text-white leading-snug">
-                  Continuous <span className="text-blue-400">Monitoring & Feedback Loop</span>
+                  Continuous <span className="text-[#C05D17]">Monitoring & Feedback Loop</span>
                 </p>
                 <p className="text-[22px] font-bold text-slate-400 mt-1">
                   {slide.content}
@@ -144,7 +144,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                   className="relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 group cursor-pointer"
                   onClick={() => setSelectedImage(img)}
                 >
-                  <div className="w-full h-full relative">
+                  <div className="w-full relative">
                     <img
                       src={img}
                       alt={`Capture ${idx}`}
@@ -160,12 +160,12 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                     <div className="absolute bottom-0 inset-x-0 p-10 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-10">
                       {slide.items?.[idx] && (
                         <div className="space-y-3">
-                          <div className="w-12 h-1 bg-blue-500 rounded-full mb-4" />
+                          <div className="w-12 h-1 bg-[#C05D17] rounded-full mb-4" />
                           <h4 className="text-[32px] font-[950] text-white tracking-tight leading-none drop-shadow-md">
                             {slide.items[idx].label}
                           </h4>
-                          <p className="text-[22px] font-bold text-blue-200 flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-blue-400" />
+                          <p className="text-[22px] font-bold text-[#4A362D]/60 flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-[#C05D17]" />
                             {slide.items[idx].value}
                           </p>
                         </div>
@@ -176,11 +176,11 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
               ))}
             </div>
             {slide.content && (
-              <div className="bg-blue-50 border border-blue-100 p-6 rounded-2xl flex items-center gap-6">
-                <div className="bg-[#0055FF] text-white p-3 rounded-xl">
+              <div className="bg-[#FAF7F2] border border-[#D6C7B9] p-6 rounded-2xl flex items-center gap-6">
+                <div className="bg-[#C05D17] text-white p-3 rounded-xl">
                   <Activity size={24} />
                 </div>
-                <p className="text-xl font-bold text-[#0055FF] leading-relaxed">
+                <p className="text-xl font-bold text-[#C05D17] leading-relaxed">
                   {slide.content}
                 </p>
               </div>
@@ -190,7 +190,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
       case 'paradigm-shift':
         return (
-          <div className="h-full flex flex-col space-y-8">
+          <div className="flex flex-col space-y-8 py-10">
             <div className="flex flex-col space-y-2">
               <h2 className="text-5xl font-[950] text-[#111] tracking-tighter">{slide.title}</h2>
               <p className="text-slate-500 font-bold text-xl">{slide.subtitle}</p>
@@ -222,30 +222,30 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center text-[#0055FF]">
+                  <div className="w-10 h-10 bg-[#E8E2D9] rounded-full flex items-center justify-center text-[#C05D17]">
                     <ChevronRight size={24} strokeWidth={4} />
                   </div>
-                  <span className="text-[20px] font-black text-[#0055FF] uppercase mt-2">SHIFT</span>
+                  <span className="text-[20px] font-black text-[#C05D17] uppercase mt-2">SHIFT</span>
                 </div>
 
-                <div className="bg-[#F0F5FF] rounded-3xl p-8 border border-blue-100 relative group">
-                  <span className="text-[20px] font-black text-[#0055FF] uppercase tracking-widest block mb-4">생성형 엔진 최적화 (GEO)</span>
+                <div className="bg-[#FAF7F2] rounded-3xl p-8 border border-[#D6C7B9] relative group">
+                  <span className="text-[20px] font-black text-[#C05D17] uppercase tracking-widest block mb-4">생성형 엔진 최적화 (GEO)</span>
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-[#0055FF] shadow-md flex items-center justify-center text-white">
+                    <div className="w-12 h-12 rounded-xl bg-[#4A362D] shadow-md flex items-center justify-center text-white">
                       <MessageSquare className="w-6 h-6" />
                     </div>
-                    <div className="h-0.5 flex-1 bg-blue-200 rounded-full" />
-                    <div className="w-12 h-12 rounded-xl bg-[#111] shadow-md flex items-center justify-center text-white">
+                    <div className="h-0.5 flex-1 bg-[#D6C7B9] rounded-full" />
+                    <div className="w-12 h-12 rounded-xl bg-[#C05D17] shadow-md flex items-center justify-center text-white">
                       <Zap className="w-6 h-6" />
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white p-4 rounded-2xl border border-blue-100">
-                      <p className="text-[20px] font-bold text-[#0055FF]">핵심 목표</p>
-                      <p className="text-[24px] font-black text-slate-900">AI 답변 인용</p>
+                    <div className="bg-white p-4 rounded-2xl border border-[#D6C7B9]">
+                      <p className="text-[20px] font-bold text-[#C05D17]">핵심 목표</p>
+                      <p className="text-[24px] font-black text-[#4A362D]">AI 답변 인용</p>
                     </div>
-                    <div className="bg-[#0055FF] p-4 rounded-2xl shadow-sm">
-                      <p className="text-[20px] font-bold text-blue-200">사용자 경험</p>
+                    <div className="bg-[#4A362D] p-4 rounded-2xl shadow-sm">
+                      <p className="text-[20px] font-bold text-[#F5F3EF]">사용자 경험</p>
                       <p className="text-[24px] font-black text-white">즉각 정답 획득</p>
                     </div>
                   </div>
@@ -261,18 +261,18 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                     <h4 className="text-2xl font-black text-[#111]">행동의 변화</h4>
                   </div>
                   <p className="text-[20px] font-bold text-slate-500 leading-relaxed">
-                    검색 후 웹사이트를 방문하던 방식에서, 채팅창 내에서 정보를 획득하고 종료하는 <span className="text-[#0055FF] font-black underline underline-offset-4">'제로클릭(Zero-Click)'</span> 소비가 가속화됩니다.
+                    검색 후 웹사이트를 방문하던 방식에서, 채팅창 내에서 정보를 획득하고 종료하는 <span className="text-[#C05D17] font-black underline underline-offset-4">'제로클릭(Zero-Click)'</span> 소비가 가속화됩니다.
                   </p>
                 </div>
                 <div className="bg-white border border-slate-200 p-8 rounded-3xl shadow-sm space-y-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-900">
+                    <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-[#4A362D]">
                       <TargetIcon size={24} />
                     </div>
-                    <h4 className="text-2xl font-black text-[#111]">목표의 변화</h4>
+                    <h4 className="text-2xl font-black text-[#4A362D]">목표의 변화</h4>
                   </div>
                   <p className="text-[20px] font-bold text-slate-500 leading-relaxed">
-                    노출 순위보다 AI 답변의 <span className="text-[#0055FF] font-black underline underline-offset-4">'추천 리스트'</span> 포함 및 신뢰도 높은 출처 인용 여부가 마케팅의 핵심 성과 지표가 됩니다.
+                    노출 순위보다 AI 답변의 <span className="text-[#C05D17] font-black underline underline-offset-4">'추천 리스트'</span> 포함 및 신뢰도 높은 출처 인용 여부가 마케팅의 핵심 성과 지표가 됩니다.
                   </p>
                 </div>
               </div>
@@ -283,7 +283,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                 </div>
                 <div className="relative z-10 flex items-center gap-10">
                   <div className="flex-shrink-0 text-center">
-                    <div className="bg-[#0055FF] text-white px-4 py-1.5 rounded-full font-black text-[20px] tracking-widest mb-3 inline-block">
+                    <div className="bg-[#4A362D] text-white px-4 py-1.5 rounded-full font-black text-[20px] tracking-widest mb-3 inline-block">
                       DEFINITION
                     </div>
                     <h3 className="text-3xl font-black text-white leading-tight">지능형<br />최적화</h3>
@@ -291,7 +291,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                   <div className="w-px h-24 bg-slate-800" />
                   <p className="text-[26px] font-bold text-slate-300 leading-relaxed flex-1">
                     인공지능(AI)이 브랜드를 <span className="text-white font-black underline underline-offset-4 decoration-white/50">가장 신뢰할 수 있는 정보원</span>으로 인식하게 하여,<br />
-                    답변 생성 시 우리 정보를 우선적으로 인용하게 만드는 <span className="text-[#0055FF] font-black">차세대 데이터 구조화 최적화 전략</span>입니다.
+                    답변 생성 시 우리 정보를 우선적으로 인용하게 만드는 <span className="text-[#C05D17] font-black">차세대 데이터 구조화 최적화 전략</span>입니다.
                   </p>
                 </div>
               </div>
@@ -301,7 +301,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
       case 'ai-mechanism':
         return (
-          <div className="h-full flex flex-col space-y-6">
+          <div className="flex flex-col space-y-6 py-10">
             <div className="flex flex-col space-y-2 text-center">
               <h2 className="text-5xl font-[950] text-[#111] tracking-tighter">{slide.title}</h2>
               <p className="text-slate-500 font-bold text-xl">{slide.subtitle}</p>
@@ -339,7 +339,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                       <div className="mt-8 space-y-3 pt-6 border-t border-slate-100/80 flex-1">
                         {step.details.map((detail, dIdx) => (
                           <div key={dIdx} className="flex items-center justify-center gap-3">
-                            <div className={`w-2 h-2 rounded-full flex-shrink-0 ${idx === 1 ? 'bg-rose-400' : 'bg-[#0055FF]'}`} />
+                            <div className={`w-2 h-2 rounded-full flex-shrink-0 ${idx === 1 ? 'bg-[#C05D17]' : 'bg-[#4A362D]'}`} />
                             <span className="text-[19px] font-semibold text-slate-400 leading-tight">{detail}</span>
                           </div>
                         ))}
@@ -390,8 +390,8 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                     title: "단기 목표",
                     desc: slide.content[0].includes(':') ? slide.content[0].split(':')[1].trim() : slide.content[0],
                     icon: Target,
-                    color: "text-[#0055FF]",
-                    bg: "bg-blue-50"
+                    color: "text-[#C05D17]",
+                    bg: "bg-[#F5F3EF]"
                   },
                   {
                     title: "중장기 목표",
@@ -417,19 +417,19 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
             )}
 
             <div className="w-full flex-shrink-0">
-              <div className="w-full bg-white border-2 border-[#0055FF] rounded-2xl h-20 px-10 flex items-center justify-between shadow-sm">
-                <span className="text-[#0055FF] font-extrabold text-[20px] tracking-tight">
+              <div className="w-full bg-white border-2 border-[#B18B5E] rounded-2xl h-20 px-10 flex items-center justify-between shadow-sm">
+                <span className="text-[#B18B5E] font-extrabold text-[20px] tracking-tight">
                   {slide.id === 5 ? "구축 프로세스별 상세 과업과 산출물을 한눈에 확인해 보세요!" : slide.subtitle}
                 </span>
-                <div className="bg-[#0055FF] rounded-full p-3">
+                <div className="bg-[#B18B5E] rounded-full p-3">
                   <Search className="w-8 h-8 text-white stroke-[3]" />
                 </div>
               </div>
             </div>
 
-            <div className="flex-1 bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden flex flex-col min-h-0">
-              <div className="flex-1 overflow-hidden flex flex-col">
-                <div className="bg-[#448AFF] text-white">
+            <div className="flex-1 bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden flex flex-col min-h-0 py-8">
+              <div className="flex-1 flex flex-col">
+                <div className="bg-[#4A362D]/90 text-white">
                   <div className="grid grid-cols-[140px_1fr_2fr_2fr_160px] divide-x divide-white/20">
                     {slide.tableData?.headers.map((h, i) => (
                       <div key={i} className="px-8 py-5 text-[15px] font-bold uppercase tracking-tight text-center">
@@ -438,9 +438,9 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                     ))}
                   </div>
                 </div>
-                <div className="flex-1 overflow-y-auto divide-y divide-slate-100 custom-scrollbar">
+                <div className="flex-1 divide-y divide-slate-100">
                   {slide.tableData?.rows.map((row, i) => (
-                    <div key={i} className="grid grid-cols-[140px_1fr_2fr_2fr_160px] divide-x divide-slate-50 hover:bg-blue-50/30 transition-colors items-center h-20">
+                    <div key={i} className="grid grid-cols-[140px_1fr_2fr_2fr_160px] divide-x divide-slate-50 hover:bg-[#F5F3EF] transition-colors items-center h-20">
                       {row.map((cell, j) => (
                         <div key={j} className={`px-8 h-full flex items-center justify-center text-center text-[16px] ${j === 1 ? 'font-bold text-[#111]' : j === 0 ? 'text-slate-400 font-bold' : 'text-slate-500 font-medium'}`}>
                           {cell}
@@ -462,11 +462,11 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
             <div className="flex items-center justify-between pb-6 border-b border-slate-200/50 relative z-10">
               <div className="flex items-center gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0055FF] to-blue-700 flex items-center justify-center text-white shadow-xl">
-                  <Sparkle className="w-8 h-8 animate-pulse" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#4A362D] to-[#322621] flex items-center justify-center text-white shadow-xl">
+                  <Sparkle className="w-8 h-8 animate-pulse text-white" />
                 </div>
                 <div className="flex flex-col">
-                  <h2 className="text-5xl font-[950] text-[#111] tracking-tighter leading-none">
+                  <h2 className="text-4xl font-[950] text-[#4A362D] tracking-tighter leading-none">
                     {slide.title}
                   </h2>
                   <p className="text-slate-500 font-bold text-[20px] mt-2 tracking-tight">{slide.subtitle}</p>
@@ -491,7 +491,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                         <div className={`p-3 rounded-2xl bg-white shadow-lg ${glowColor} group-hover/card:scale-110 transition-transform`}>
                           <IconComp className={`w-6 h-6 ${accentColor} `} strokeWidth={3} />
                         </div>
-                        <h3 className="text-2xl font-[900] text-slate-900 tracking-tight">{item.label}</h3>
+                        <h3 className="text-2xl font-[900] text-[#4A362D] tracking-tight">{item.label}</h3>
                       </div>
                     </div>
 
@@ -515,7 +515,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                         <div className="mt-auto pt-8 border-t border-slate-200/40">
                           <div className="flex items-center justify-between mb-6">
                             <span className={`text-[18px] font-black ${accentColor} uppercase tracking-widest flex items-center gap-2`}>
-                              <Database size={14} /> 핵심 산출물 (샘플 확인)
+                              <Database size={14} /> 핵심 산출물
                             </span>
                           </div>
                           <div className="grid grid-cols-1 gap-3">
@@ -552,7 +552,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                                     </span>
                                   </div>
                                   <div className="flex items-center gap-2 relative z-10">
-                                    <span className="text-[11px] font-black text-blue-500 group-hover/btn:text-blue-400 uppercase tracking-widest opacity-0 group-hover/btn:opacity-100 transition-all">View Report</span>
+                                    <span className="text-[11px] font-black text-[#C05D17] group-hover/btn:text-[#F5F3EF] uppercase tracking-widest opacity-0 group-hover/btn:opacity-100 transition-all">View Report</span>
                                     <ArrowUpRight className="w-5 h-5 text-slate-300 group-hover/btn:text-white" />
                                   </div>
                                   <div className={`absolute inset-0 bg-gradient-to-r from-${idx === 0 ? 'blue' : idx === 1 ? 'purple' : 'emerald'}-600/10 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity`} />
@@ -581,14 +581,14 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
           "경쟁사 감지": Eye
         };
         return (
-          <div className="h-full flex flex-col space-y-12">
+          <div className="flex flex-col space-y-12 py-10">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-[#111] flex items-center justify-center text-white shadow-xl rotate-3">
+                <div className="w-16 h-16 rounded-2xl bg-[#4A362D] flex items-center justify-center text-white shadow-xl rotate-3">
                   <Cpu className="w-10 h-10" />
                 </div>
                 <div>
-                  <h2 className="text-5xl font-[950] text-[#111] tracking-tight">{slide.title}</h2>
+                  <h2 className="text-5xl font-[950] text-[#4A362D] tracking-tight">{slide.title}</h2>
                   <div className="flex items-center gap-3 mt-2">
                     <span className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
                     <span className="text-[12px] font-bold text-slate-400 uppercase tracking-widest">Claude-3.5-Sonnet Active</span>
@@ -596,10 +596,10 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                 </div>
               </div>
               <div className="flex gap-3">
-                <div className="px-6 py-3 bg-blue-50 border border-blue-100 rounded-xl text-[#0055FF] text-sm font-black uppercase tracking-widest">Analysis Module</div>
+                <div className="px-6 py-3 bg-[#E8E2D9] border border-[#D6C7B9] rounded-xl text-[#4A362D] text-sm font-black uppercase tracking-widest">Analysis Module</div>
               </div>
             </div>
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-y-auto custom-scrollbar pr-4">
+            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pr-4">
               {slide.items?.map((item, idx) => {
                 const Icon = contentIcons[item.label] || Sparkles;
                 return (
@@ -608,14 +608,14 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                       <Icon size={160} />
                     </div>
                     <div className="flex items-center justify-between mb-8">
-                      <div className="w-14 h-14 bg-[#F0F5FF] rounded-2xl flex items-center justify-center text-[#0055FF] group-hover:scale-110 transition-transform">
+                      <div className="w-14 h-14 bg-[#F5F3EF] rounded-2xl flex items-center justify-center text-[#C05D17] group-hover:scale-110 transition-transform">
                         <Icon className="w-8 h-8 stroke-[2.5]" />
                       </div>
                       <span className="text-[11px] font-black text-slate-300 uppercase tracking-widest">Feature 0{idx + 1}</span>
                     </div>
                     <div className="space-y-4 flex-1 relative z-10">
-                      <h4 className="text-3xl font-black text-[#111] tracking-tight group-hover:text-[#0055FF] transition-colors">{item.label}</h4>
-                      <div className="w-12 h-1.5 bg-blue-100 group-hover:w-24 transition-all" />
+                      <h4 className="text-3xl font-black text-[#4A362D] tracking-tight group-hover:text-[#C05D17] transition-colors">{item.label}</h4>
+                      <div className="w-12 h-1.5 bg-[#D6C7B9] group-hover:w-24 transition-all" />
                       <p className="text-[18px] text-slate-500 font-bold leading-relaxed pt-4">{item.value}</p>
                     </div>
                   </div>
@@ -629,27 +629,27 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
       case 'flow': {
         const flowIcons = [Webhook, Layers, Code2, Save, Calculator, BellRing];
         return (
-          <div className="h-full flex flex-col overflow-hidden">
+          <div className="flex flex-col py-10">
             <div className="flex items-center gap-6 flex-shrink-0 mb-10">
               <div className="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-900 shadow-sm border border-slate-200">
                 <Zap className="w-8 h-8" />
               </div>
               <h2 className="text-5xl font-[950] text-[#111] tracking-tight">{slide.title}</h2>
             </div>
-            <div className="flex-1 flex flex-col justify-center overflow-y-auto custom-scrollbar">
+            <div className="flex-1 flex flex-col justify-center">
               <div className="grid grid-cols-2 gap-x-12 gap-y-8 pb-12">
                 {slide.items?.map((item, idx) => {
                   const Icon = flowIcons[idx] || CheckCircle2;
                   return (
                     <div key={idx} className="flex items-start gap-6 group">
-                      <div className="w-16 h-16 bg-white border border-slate-200 rounded-2xl flex items-center justify-center shadow-sm group-hover:border-[#0055FF] group-hover:bg-[#F0F5FF] transition-all flex-shrink-0 mt-1">
-                        <Icon className="w-8 h-8 text-slate-400 group-hover:text-[#0055FF] transition-colors" />
+                      <div className="w-16 h-16 bg-white border border-slate-200 rounded-2xl flex items-center justify-center shadow-sm group-hover:border-[#C05D17] group-hover:bg-[#FAF7F2] transition-all flex-shrink-0 mt-1">
+                        <Icon className="w-8 h-8 text-slate-400 group-hover:text-[#C05D17] transition-colors" />
                       </div>
                       <div className="flex-1 bg-white border border-slate-200 p-8 rounded-3xl shadow-sm hover:shadow-md transition-all flex flex-col justify-center">
                         <div className="flex items-center gap-3 mb-3">
-                          <span className="text-[11px] font-extrabold text-[#0055FF] uppercase tracking-widest px-2.5 py-1 rounded bg-blue-50">Step 0{idx + 1}</span>
+                          <span className="text-[11px] font-extrabold text-[#C05D17] uppercase tracking-widest px-2.5 py-1 rounded bg-[#E8E2D9]">Step 0{idx + 1}</span>
                         </div>
-                        <h4 className="text-2xl font-black text-[#111] mb-2">{item.label}</h4>
+                        <h4 className="text-2xl font-black text-[#4A362D] mb-2">{item.label}</h4>
                         <p className="text-[15px] text-slate-500 font-medium leading-relaxed">{item.value}</p>
                       </div>
                     </div>
@@ -662,9 +662,9 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
       }
       case 'pipeline': {
         return (
-          <div className="h-full flex flex-col space-y-6">
+          <div className="flex flex-col space-y-6 py-10">
             <div className="flex flex-col space-y-2 flex-shrink-0">
-              <h2 className="text-4xl font-[950] text-[#111] tracking-tighter">{slide.title}</h2>
+              <h2 className="text-4xl font-[950] text-[#4A362D] tracking-tighter">{slide.title}</h2>
               <p className="text-slate-500 font-bold text-lg">{slide.subtitle}</p>
             </div>
 
@@ -672,19 +672,19 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
               {/* Top Section: Process Flows */}
               <div className="flex-1 grid grid-cols-2 gap-6 min-h-0">
                 {/* Manual Work Column */}
-                <div className="bg-white border border-slate-200 rounded-[2.5rem] p-8 flex flex-col items-center justify-center shadow-sm relative overflow-hidden group hover:border-orange-200 transition-colors">
-                  <div className="absolute top-0 inset-x-0 h-1 bg-orange-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="bg-white border border-[#D6C7B9] rounded-[2.5rem] p-8 flex flex-col items-center justify-center shadow-sm relative overflow-hidden group hover:border-[#C05D17]/30 transition-colors">
+                  <div className="absolute top-0 inset-x-0 h-1 bg-[#C05D17] opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="mb-8 flex items-center gap-2">
-                    <User size={16} className="text-orange-500" />
-                    <span className="text-[20px] font-black text-slate-400 uppercase tracking-widest">Manual Work</span>
+                    <User size={16} className="text-[#C05D17]" />
+                    <span className="text-[20px] font-black text-[#988476] uppercase tracking-widest">Manual Work</span>
                   </div>
 
                   <div className="space-y-4 w-full max-w-xs">
                     {['시크릿 모드 브라우저', '플랫폼별 질문 입력', '응답 데이터 복사'].map((step, i) => (
                       <div key={i} className="flex flex-col items-center">
-                        <div className="w-full bg-white border border-slate-200 rounded-2xl py-3 px-6 text-center shadow-sm relative z-10">
-                          <span className="block text-[20px] font-bold text-orange-400 mb-1 uppercase">Step 0{i + 1}</span>
-                          <span className="text-[20px] font-bold text-slate-700">{step}</span>
+                        <div className="w-full bg-white border border-[#D6C7B9] rounded-2xl py-3 px-6 text-center shadow-sm relative z-10">
+                          <span className="block text-[20px] font-bold text-[#C05D17] mb-1 uppercase">Step 0{i + 1}</span>
+                          <span className="text-[20px] font-bold text-[#4A362D]">{step}</span>
                         </div>
                         {i < 2 && <ArrowDown size={16} className="text-slate-200 my-2" />}
                       </div>
@@ -698,18 +698,18 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                 </div>
 
                 {/* AI Automation Column */}
-                <div className="bg-blue-50/50 border border-blue-100 rounded-[2.5rem] p-8 flex flex-col items-center justify-center shadow-sm relative overflow-hidden">
+                <div className="bg-[#FAF7F2]/50 border border-[#D6C7B9] rounded-[2.5rem] p-8 flex flex-col items-center justify-center shadow-sm relative overflow-hidden">
                   <div className="mb-8 flex items-center gap-2">
-                    <Bot size={16} className="text-blue-500" />
-                    <span className="text-[20px] font-black text-blue-300 uppercase tracking-widest">AI Automation</span>
+                    <Bot size={16} className="text-[#C05D17]" />
+                    <span className="text-[20px] font-black text-[#988476] uppercase tracking-widest">AI Automation</span>
                   </div>
 
                   <div className="space-y-6 w-full max-w-sm flex flex-col items-center">
                     {/* Engine Card */}
-                    <div className="w-full bg-white/80 border border-blue-200/50 rounded-3xl p-6 shadow-sm backdrop-blur-sm">
+                    <div className="w-full bg-white/80 border border-[#D6C7B9]/50 rounded-3xl p-6 shadow-sm backdrop-blur-sm">
                       <div className="flex items-center gap-2 mb-4 justify-center">
-                        <Cpu size={16} className="text-blue-500" />
-                        <span className="text-[20px] font-black text-blue-600 uppercase">Engine: Claude Sonnet</span>
+                        <Cpu size={16} className="text-[#C05D17]" />
+                        <span className="text-[20px] font-black text-[#4A362D] uppercase">Engine: Claude Sonnet</span>
                       </div>
                       <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-[20px] font-medium text-slate-500">
                         {['언급 여부', '순위 추출', '맥락 파악', '감성 분석', '경쟁사 감지', '지표 집계'].map((item, i) => (
@@ -721,17 +721,17 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                       </div>
                     </div>
 
-                    <ArrowDown size={16} className="text-blue-200" />
+                    <ArrowDown size={16} className="text-[#D6C7B9]" />
 
-                    <div className="w-full bg-white border border-blue-100 rounded-2xl py-3 px-6 text-center shadow-sm">
-                      <span className="block text-[20px] font-bold text-blue-400 mb-1 uppercase">Step 05</span>
-                      <span className="text-[20px] font-bold text-slate-700">분석 데이터 자동 적재</span>
+                    <div className="w-full bg-white border border-[#D6C7B9] rounded-2xl py-3 px-6 text-center shadow-sm">
+                      <span className="block text-[20px] font-bold text-[#C05D17] mb-1 uppercase">Step 05</span>
+                      <span className="text-[20px] font-bold text-[#4A362D]">분석 데이터 자동 적재</span>
                     </div>
 
-                    <ArrowDown size={16} className="text-blue-200" />
+                    <ArrowDown size={16} className="text-[#D6C7B9]" />
 
-                    <div className="w-full bg-blue-600 rounded-2xl py-4 px-6 text-center shadow-lg shadow-blue-500/30">
-                      <span className="block text-[20px] font-bold text-blue-200 mb-1 uppercase">Output</span>
+                    <div className="w-full bg-[#4A362D] rounded-2xl py-4 px-6 text-center shadow-lg shadow-[#4A362D]/30">
+                      <span className="block text-[20px] font-bold text-[#C05D17] mb-1 uppercase">Output</span>
                       <span className="text-[24px] font-black text-white">대시보드 & 리포트 자동화</span>
                     </div>
                   </div>
@@ -741,26 +741,26 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
               {/* Bottom Section: Roles */}
               <div className="h-40 bg-white border border-slate-200 rounded-[2.5rem] shadow-xl flex overflow-hidden">
                 {/* Human Role */}
-                <div className="flex-1 p-8 flex items-center gap-6 border-r border-slate-100 group hover:bg-slate-50/50 transition-colors">
-                  <div className="w-16 h-16 rounded-2xl bg-orange-50 border border-orange-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <User className="w-8 h-8 text-orange-500" strokeWidth={1.5} />
+                <div className="flex-1 p-8 flex items-center gap-6 border-r border-[#D6C7B9] group hover:bg-[#F5F3EF]/50 transition-colors">
+                  <div className="w-16 h-16 rounded-2xl bg-[#F5F3EF] border border-[#D6C7B9] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <User className="w-8 h-8 text-[#C05D17]" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <span className="text-[20px] font-black text-orange-400 uppercase tracking-widest mb-1 block">Human Role</span>
-                    <h3 className="text-[26px] font-black text-slate-800 mb-1">질문하고 응답 복사해서 붙여넣기</h3>
-                    <p className="text-[20px] font-medium text-slate-500">기존 분석 방식 대비 입력 공수 80% 절감</p>
+                    <span className="text-[20px] font-black text-[#C05D17] uppercase tracking-widest mb-1 block">Human Role</span>
+                    <h3 className="text-[26px] font-black text-[#4A362D] mb-1">질문하고 응답 복사해서 붙여넣기</h3>
+                    <p className="text-[20px] font-medium text-[#988476]">기존 분석 방식 대비 입력 공수 80% 절감</p>
                   </div>
                 </div>
 
                 {/* AI Role */}
-                <div className="flex-1 p-8 flex items-center gap-6 group hover:bg-blue-50/30 transition-colors bg-blue-50/10">
-                  <div className="w-16 h-16 rounded-2xl bg-blue-600 shadow-lg shadow-blue-500/30 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                <div className="flex-1 p-8 flex items-center gap-6 group hover:bg-[#4A362D]/5 transition-colors bg-[#4A362D]/2">
+                  <div className="w-16 h-16 rounded-2xl bg-[#4A362D] shadow-lg shadow-[#4A362D]/30 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                     <Bot className="w-8 h-8 text-white" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <span className="text-[20px] font-black text-blue-500 uppercase tracking-widest mb-1 block">AI Engine Role</span>
-                    <h3 className="text-[26px] font-black text-slate-900 mb-1">모든 분석, 판단, 집계, 리포팅 자동화</h3>
-                    <p className="text-[20px] font-medium text-slate-500">인적 오류 배제 및 실시간 통찰력 제공</p>
+                    <span className="text-[20px] font-black text-[#C05D17] uppercase tracking-widest mb-1 block">AI Engine Role</span>
+                    <h3 className="text-[26px] font-black text-[#4A362D] mb-1">모든 분석, 판단, 집계, 리포팅 자동화</h3>
+                    <p className="text-[20px] font-medium text-[#988476]">인적 오류 배제 및 실시간 통찰력 제공</p>
                   </div>
                 </div>
               </div>
@@ -770,17 +770,17 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
       }
       case 'full-image':
         return (
-          <div className="h-full flex flex-col space-y-8">
+          <div className="flex flex-col space-y-8 py-10">
             <div className="flex flex-col space-y-2 flex-shrink-0">
-              <h2 className="text-5xl font-[950] text-[#111] tracking-tighter">{slide.title}</h2>
+              <h2 className="text-5xl font-[950] text-[#4A362D] tracking-tighter">{slide.title}</h2>
               <p className="text-slate-500 font-bold text-xl">{slide.subtitle}</p>
             </div>
-            <div className="flex-1 relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 bg-white group min-h-0">
+            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 bg-white group min-h-[600px]">
               <div className="w-full h-full relative overflow-hidden">
                 <img
                   src={slide.content as string}
                   alt="Dashboard View"
-                  className="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-700 origin-top"
+                  className="w-full object-cover object-top hover:scale-[1.02] transition-transform duration-700 origin-top"
                 />
                 <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5 rounded-[2.5rem]" />
               </div>
@@ -795,18 +795,18 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
         const reports = slide.items?.[3]?.details as any[] || [];
 
         return (
-          <div className="h-full flex flex-col space-y-6">
+          <div className="flex flex-col space-y-6 py-10">
             <div className="flex justify-between items-end flex-shrink-0">
               <div className="flex flex-col space-y-2">
-                <h2 className="text-4xl font-[950] text-[#111] tracking-tighter">{slide.title}</h2>
+                <h2 className="text-4xl font-[950] text-[#4A362D] tracking-tighter">{slide.title}</h2>
                 <p className="text-slate-500 font-bold text-lg">{slide.subtitle}</p>
               </div>
 
               <div className="flex gap-6 mb-1">
                 {reports.map((report, idx) => (
-                  <div key={idx} className="bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-4 hover:border-blue-400 hover:shadow-lg transition-all cursor-default group">
-                    <div className="bg-blue-50 p-2.5 rounded-xl group-hover:bg-blue-100 transition-colors">
-                      <FileText size={20} className="text-blue-600" strokeWidth={2.5} />
+                  <div key={idx} className="bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-4 hover:border-[#B18B5E] hover:shadow-lg transition-all cursor-default group">
+                    <div className="bg-[#FAF7F2] p-2.5 rounded-xl group-hover:bg-[#E8DCC6]/40 transition-colors">
+                      <FileText size={20} className="text-[#B18B5E]" strokeWidth={2.5} />
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[14px] font-black text-slate-400 uppercase tracking-widest mb-1">{report.title}</span>
@@ -853,7 +853,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                 <div className="absolute inset-0 top-3 px-[0.2%] flex w-full">
                   {/* PLAN: W1-2 (2 weeks) */}
                   <div style={{ width: `${(2 / 13) * 100}% ` }} className="h-full px-1 pt-4 pb-2">
-                    <div className="w-full h-full bg-slate-100 rounded-xl border border-slate-200 flex flex-col items-center justify-center relative group hover:bg-slate-200 transition-colors">
+                    <div className="w-full h-full bg-[#E8E2D9] rounded-xl border border-[#D6C7B9] flex flex-col items-center justify-center relative group hover:bg-[#D6C7B9] transition-colors">
                       <span className="text-[22px] font-bold text-slate-600">전략/KPI</span>
                       <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-slate-300" />
                     </div>
@@ -861,7 +861,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
                   {/* SETUP: W3-4 (2 weeks) */}
                   <div style={{ width: `${(2 / 13) * 100}% ` }} className="h-full px-1 pt-4 pb-2">
-                    <div className="w-full h-full bg-slate-100 rounded-xl border border-slate-200 flex flex-col items-center justify-center relative group hover:bg-slate-200 transition-colors">
+                    <div className="w-full h-full bg-[#E8E2D9] rounded-xl border border-[#D6C7B9] flex flex-col items-center justify-center relative group hover:bg-[#D6C7B9] transition-colors">
                       <span className="text-[22px] font-bold text-slate-600">환경 구축</span>
                       <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-slate-300" />
                     </div>
@@ -869,7 +869,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
                   {/* DO: W5-8 (4 weeks) */}
                   <div style={{ width: `${(4 / 13) * 100}% ` }} className="h-full px-1 pt-4 pb-2">
-                    <div className="w-full h-full bg-slate-100 rounded-xl border border-slate-200 flex flex-col items-center justify-center relative z-10 hover:scale-[1.02] transition-transform group hover:bg-slate-200">
+                    <div className="w-full h-full bg-[#E8E2D9] rounded-xl border border-[#D6C7B9] flex flex-col items-center justify-center relative z-10 hover:scale-[1.02] transition-transform group hover:bg-[#D6C7B9]">
                       <span className="text-[22px] font-bold text-slate-600">실행 및 모니터링</span>
                       <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-slate-300" />
                     </div>
@@ -877,7 +877,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
                   {/* CHECK: W9-12 (4 weeks) */}
                   <div style={{ width: `${(4 / 13) * 100}% ` }} className="h-full px-1 pt-4 pb-2">
-                    <div className="w-full h-full bg-white rounded-xl border-2 border-slate-100 border-dashed flex flex-col items-center justify-center relative hover:border-slate-300 transition-colors">
+                    <div className="w-full h-full bg-white rounded-xl border-2 border-[#E8E2D9] border-dashed flex flex-col items-center justify-center relative hover:border-[#D6C7B9] transition-colors">
                       <span className="text-[22px] font-bold text-slate-600">분석/평가</span>
                     </div>
                   </div>
@@ -896,17 +896,17 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
             {/* 2. Checklists Section */}
             <div className="flex-1 grid grid-cols-3 gap-6 min-h-0">
               {checklists.map((group, idx) => (
-                <div key={idx} className="rounded-[2rem] p-8 flex flex-col border bg-white border-slate-200 shadow-sm hover:border-blue-200 transition-colors">
+                <div key={idx} className="rounded-[2rem] p-8 flex flex-col border bg-white border-[#D6C7B9] shadow-sm hover:border-[#C05D17]/30 transition-colors">
                   <div className="flex items-center gap-3 mb-8">
-                    <span className="px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-widest bg-slate-100 text-slate-500">
+                    <span className="px-3 py-1.5 rounded-lg text-xs font-black uppercase tracking-widest bg-[#F5F3EF] text-[#988476]">
                       PHASE 0{idx + 1}
                     </span>
-                    <h4 className="text-2xl font-black text-slate-900">{group.phase}</h4>
+                    <h4 className="text-2xl font-black text-[#4A362D]">{group.phase}</h4>
                   </div>
                   <div className="space-y-6 flex-1 overflow-y-auto custom-scrollbar">
                     {group.items.map((item: string, i: number) => (
                       <div key={i} className="flex items-start gap-4 group">
-                        <div className="mt-1 w-6 h-6 rounded-lg border border-slate-300 text-slate-300 flex items-center justify-center flex-shrink-0 group-hover:border-blue-500 group-hover:text-blue-500 transition-colors">
+                        <div className="mt-1 w-6 h-6 rounded-lg border border-[#D6C7B9] text-[#D6C7B9] flex items-center justify-center flex-shrink-0 group-hover:border-[#C05D17] group-hover:text-[#C05D17] transition-colors">
                           <Check size={14} strokeWidth={4} />
                         </div>
                         <p className="text-[17px] font-bold leading-relaxed text-slate-600 group-hover:text-slate-900 transition-colors">
@@ -922,9 +922,9 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
             {/* 3. Justification Section */}
             <div className="grid grid-cols-3 gap-6 flex-shrink-0">
               {justifications.map((item, idx) => (
-                <div key={idx} className="bg-slate-900 rounded-2xl p-6 flex items-center gap-5 text-white">
-                  <div className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center flex-shrink-0">
-                    {idx === 0 ? <History size={24} className="text-blue-400" /> : idx === 1 ? <ShieldCheck size={24} className="text-emerald-400" /> : <RefreshCw size={24} className="text-purple-400" />}
+                <div key={idx} className="bg-[#4A362D] rounded-2xl p-6 flex items-center gap-5 text-white">
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                    {idx === 0 ? <History size={24} className="text-[#C05D17]" /> : idx === 1 ? <ShieldCheck size={24} className="text-[#C05D17]" /> : <RefreshCw size={24} className="text-[#C05D17]" />}
                   </div>
                   <div>
                     <h5 className="text-sm font-bold text-slate-400 mb-1">{item.title}</h5>
@@ -940,11 +940,11 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
         const loopIcons = [ShieldCheck, Handshake, Cpu];
 
         return (
-          <div className="h-full flex flex-col items-center justify-between py-6 relative overflow-hidden flex-1 min-h-0">
+          <div className="flex flex-col items-center justify-between py-12 relative overflow-hidden flex-1 min-h-0">
             <div className="w-full flex flex-col items-center space-y-16 relative z-10 flex-1 justify-center">
-              <div className="bg-[#F0F5FF] px-20 py-6 rounded-full shadow-lg shadow-blue-50 border border-[#D0E0FF] flex items-center gap-6 transition-transform hover:scale-105">
-                <div className="w-6 h-6 rounded-full bg-[#0055FF] animate-pulse" />
-                <p className="text-[#0055FF] text-4xl font-black tracking-tighter uppercase">
+              <div className="bg-[#FAF7F2] px-20 py-6 rounded-full shadow-lg shadow-[#B18B5E]/10 border border-[#E8DCC6] flex items-center gap-6 transition-transform hover:scale-105">
+                <div className="w-6 h-6 rounded-full bg-[#B18B5E] animate-pulse" />
+                <p className="text-[#B18B5E] text-4xl font-black tracking-tighter uppercase">
                   ETRIBE One-Team Governance
                 </p>
               </div>
@@ -955,14 +955,14 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                   return (
                     <React.Fragment key={idx}>
                       <div className="flex flex-col items-center group">
-                        <div className="w-96 bg-white border border-slate-200 rounded-[3.5rem] p-12 flex flex-col items-center text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-blue-500 hover:-translate-y-4">
-                          <div className="w-28 h-28 bg-[#F0F5FF] rounded-[2.5rem] flex items-center justify-center text-[#0055FF] mb-10 shadow-inner group-hover:bg-[#0055FF] group-hover:text-white transition-all duration-300">
+                        <div className="w-96 bg-white border border-slate-200 rounded-[3.5rem] p-12 flex flex-col items-center text-center shadow-lg transition-all duration-300 hover:shadow-2xl hover:border-[#B18B5E] hover:-translate-y-4">
+                          <div className="w-28 h-28 bg-[#FAF7F2] rounded-[2.5rem] flex items-center justify-center text-[#B18B5E] mb-10 shadow-inner group-hover:bg-[#B18B5E] group-hover:text-white transition-all duration-300">
                             <MainIcon className="w-14 h-14 stroke-[2.5]" />
                           </div>
 
-                          <h4 className="text-3xl font-black text-[#111] mb-4 tracking-tight group-hover:text-[#0055FF] transition-colors">{item.label}</h4>
-                          <div className="w-16 h-1.5 bg-blue-100 mb-6 group-hover:w-28 group-hover:bg-blue-500 transition-all duration-300" />
-                          <p className="text-[20px] font-bold text-slate-500 leading-relaxed whitespace-pre-line group-hover:text-slate-700 transition-colors">{item.value}</p>
+                          <h4 className="text-3xl font-black text-[#111] mb-4 tracking-tight group-hover:text-[#B18B5E] transition-colors">{item.label}</h4>
+                          <div className="w-16 h-1.5 bg-[#E8DCC6]/40 mb-6 group-hover:w-28 group-hover:bg-[#B18B5E] transition-all duration-300" />
+                          <p className="text-[20px] font-bold text-slate-500 leading-relaxed whitespace-pre-line group-hover:text-[#4A362D] transition-colors">{item.value}</p>
                         </div>
                       </div>
                     </React.Fragment>
@@ -972,11 +972,11 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
             </div>
 
             <div className="w-full bg-white px-20 py-10 shadow-xl shrink-0 mt-10 border border-slate-200 rounded-[2.5rem] relative overflow-hidden group text-center">
-              <div className="absolute inset-0 bg-blue-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+              <div className="absolute inset-0 bg-[#FAF7F2]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 
 
               <div className="relative z-10 flex flex-col items-center gap-4">
-                <h4 className="text-3xl font-black text-[#111] tracking-tight">Visionary One-Team Strategy</h4>
+                <h4 className="text-3xl font-black text-[#4A362D] tracking-tight">Visionary One-Team Strategy</h4>
                 <p className="text-slate-500 font-bold text-lg leading-relaxed max-w-4xl">
                   전략 수립부터 실시간 모니터링 및 마크업 최적화까지 단절 없는 원팀 운영을 통해<br />
                   변화하는 AI 환경에서 브랜드의 정보 주권과 압도적인 기술 우위를 보장합니다.
@@ -1021,9 +1021,9 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
       {selectedDeliverable && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-8 bg-slate-900/40 backdrop-blur-md slide-enter">
           <div className="bg-white/90 backdrop-blur-2xl w-full max-w-4xl max-h-[90vh] rounded-[3rem] shadow-2xl overflow-hidden border border-white/40 flex flex-col">
-            <div className="bg-slate-900 px-12 py-10 flex items-center justify-between text-white">
+            <div className="bg-[#4A362D] px-12 py-10 flex items-center justify-between text-white">
               <div className="flex items-center gap-6">
-                <div className="p-4 bg-blue-500 rounded-2xl">
+                <div className="p-4 bg-[#C05D17] rounded-2xl">
                   <FileText className="w-8 h-8" />
                 </div>
                 <div>
@@ -1092,8 +1092,8 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                       // Main Title or Header with Icon
                       if (trimmedLine.startsWith('## ')) {
                         renderedElements.push(
-                          <div key={i} className="pb-4 border-b-4 border-blue-600 mb-10 pt-8">
-                            <h2 className="text-4xl font-[950] text-slate-900 tracking-tighter flex items-center gap-4">
+                          <div key={i} className="pb-4 border-b-4 border-[#B18B5E] mb-10 pt-8">
+                            <h2 className="text-4xl font-[950] text-[#4A362D] tracking-tighter flex items-center gap-4">
                               {trimmedLine.replace('## ', '')}
                             </h2>
                           </div>
@@ -1102,8 +1102,8 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                       // Sub-headings
                       else if (trimmedLine.startsWith('### ')) {
                         renderedElements.push(
-                          <h3 key={i} className="text-2xl font-[900] text-slate-800 mt-12 mb-6 flex items-center gap-3">
-                            <div className="w-2 h-8 bg-blue-500 rounded-full" />
+                          <h3 key={i} className="text-2xl font-[900] text-[#4A362D] mt-12 mb-6 flex items-center gap-3">
+                            <div className="w-2 h-8 bg-[#C05D17] rounded-full" />
                             {trimmedLine.replace('### ', '')}
                           </h3>
                         );
@@ -1111,10 +1111,10 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                       // Insight Callouts
                       else if (trimmedLine.startsWith('> 💡')) {
                         renderedElements.push(
-                          <div key={i} className="my-8 bg-blue-50 border-l-8 border-blue-500 p-8 rounded-r-2xl">
+                          <div key={i} className="my-8 bg-[#FAF7F2] border-l-8 border-[#B18B5E] p-8 rounded-r-2xl">
                             <div className="flex gap-4">
-                              <Sparkles className="w-8 h-8 text-blue-500 shrink-0" />
-                              <p className="text-[20px] font-bold text-blue-900 leading-relaxed italic">
+                              <Sparkles className="w-8 h-8 text-[#B18B5E] shrink-0" />
+                              <p className="text-[20px] font-bold text-[#4A362D] leading-relaxed italic">
                                 {trimmedLine.replace('> 💡', '').trim()}
                               </p>
                             </div>
@@ -1143,13 +1143,13 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                               const aTrimmed = aLine.trim();
                               if (aTrimmed.startsWith('`')) {
                                 return (
-                                  <pre key={aIdx} className="text-[16px] font-mono text-blue-600 leading-relaxed whitespace-pre-wrap">
+                                  <pre key={aIdx} className="text-[16px] font-mono text-[#B18B5E] leading-relaxed whitespace-pre-wrap">
                                     {aTrimmed.replace(/`/g, '')}
                                   </pre>
                                 );
                               }
                               return (
-                                <p key={aIdx} className="text-[18px] font-black text-slate-800 mb-2 uppercase tracking-widest bg-blue-100/50 inline-block px-3 py-1 rounded-lg">
+                                <p key={aIdx} className="text-[18px] font-black text-[#4A362D] mb-2 uppercase tracking-widest bg-[#E8DCC6]/40 inline-block px-3 py-1 rounded-lg">
                                   {aTrimmed}
                                 </p>
                               );
@@ -1176,7 +1176,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                       else if (trimmedLine.startsWith('- ') || trimmedLine.startsWith('①') || trimmedLine.startsWith('②')) {
                         renderedElements.push(
                           <div key={i} className="flex items-start gap-4 mb-4 pl-4">
-                            <div className="mt-2.5 w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0 shadow-sm" />
+                            <div className="mt-2.5 w-2.5 h-2.5 rounded-full bg-[#C05D17] shrink-0 shadow-sm" />
                             <p className="text-[20px] font-bold text-slate-800 leading-relaxed">
                               {trimmedLine.startsWith('- ') ? trimmedLine.substring(2) : trimmedLine}
                             </p>
@@ -1208,7 +1208,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                             return <strong key={pIdx} className="text-slate-900 font-extrabold">{part.slice(2, -2)}</strong>;
                           }
                           if (part.startsWith('`') && part.endsWith('`')) {
-                            return <code key={pIdx} className="bg-slate-100 text-blue-600 px-2 py-0.5 rounded font-mono text-[17px] font-bold">{part.slice(1, -1)}</code>;
+                            return <code key={pIdx} className="bg-[#E8E2D9] text-[#4A362D] px-2 py-0.5 rounded font-mono text-[17px] font-bold">{part.slice(1, -1)}</code>;
                           }
                           return part;
                         });
@@ -1239,7 +1239,7 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
               <div className="mt-12 flex justify-center pb-12">
                 <button
                   onClick={closeModal}
-                  className="group flex items-center gap-4 px-12 py-5 bg-slate-900 text-white rounded-2xl font-black text-lg hover:bg-[#0055FF] transition-all shadow-xl hover:shadow-blue-200/50"
+                  className="group flex items-center gap-4 px-12 py-5 bg-[#4A362D] text-white rounded-2xl font-black text-lg hover:bg-[#C05D17] transition-all shadow-xl hover:shadow-[#C05D17]/30"
                 >
                   리포트 내용 확인 완료
                   <CheckCircle2 size={24} className="group-hover:scale-125 transition-transform" />
