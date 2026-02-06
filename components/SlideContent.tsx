@@ -29,59 +29,32 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
   };
 
   const renderContent = () => {
-    const PRIMARY_COLOR = "#4A362D";
-    const SECONDARY_COLOR = "#C5A059";
-    const BG_CREAM = "#F4F1ED";
-    const ACCENT_BLUE = "#5B84B1";
-
     switch (slide.type) {
       case 'title':
         return (
-<<<<<<< HEAD
           <div className="flex flex-col justify-center items-start text-left space-y-12 py-20 px-10">
             <div className="space-y-6">
               <h2 className="text-[#C05D17] text-3xl font-black tracking-tighter">
                 FunETF <span className="text-[#4A362D] mx-2">×</span> ETRIBE
               </h2>
               <h1 className="text-7xl md:text-8xl font-black tracking-tighter text-[#111] leading-[1.05] max-w-5xl">
-=======
-          <div className="h-full flex flex-col justify-center items-start text-left space-y-16 py-10">
-            <div className="space-y-8">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-1 bg-[#C5A059]" />
-                <span className="text-[#C5A059] text-xl font-black uppercase tracking-[0.2em]">Luxury Aesthetic</span>
-              </div>
-              <h1 className="text-8xl md:text-9xl font-black tracking-tighter text-[#4A362D] leading-[1] max-w-5xl">
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                 {slide.title}
               </h1>
-              <p className="text-3xl text-slate-500 font-bold leading-relaxed max-w-4xl">
+              <p className="text-3xl text-slate-500 font-bold leading-relaxed">
                 {slide.subtitle}
               </p>
             </div>
-<<<<<<< HEAD
             <div className="w-full h-1 bg-gradient-to-r from-[#C05D17] to-[#F5F3EF]" />
             <div className="max-w-3xl text-[#4A362D] text-2xl font-black leading-relaxed whitespace-pre-line bg-white/50 p-8 rounded-2xl border border-[#D6C7B9]">
               {slide.content}
-=======
-
-            <div className="flex flex-col space-y-8">
-              <div className="flex items-center gap-6">
-                <div className="px-8 py-4 bg-white border border-[#4A362D]/10 rounded-2xl shadow-sm text-2xl font-black text-[#4A362D]">
-                  Samsung Asset Management <span className="text-[#C5A059] mx-2">×</span> ETRIBE
-                </div>
-              </div>
-              <div className="max-w-3xl text-slate-800 text-2xl font-bold leading-relaxed whitespace-pre-line border-l-4 border-[#C5A059] pl-8">
-                {slide.content}
-              </div>
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
             </div>
           </div>
         );
 
+
+
       case 'scale-up':
         return (
-<<<<<<< HEAD
           <div className="flex flex-col space-y-10 py-10">
             <div className="flex flex-col space-y-2">
               <h2 className="text-5xl font-[950] text-[#111] tracking-tighter">{slide.title}</h2>
@@ -119,51 +92,19 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                         ))}
                       </div>
 
-=======
-          <div className="h-full flex flex-col space-y-16">
-            <div className="flex flex-col space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-1 bg-[#C5A059]" />
-                <span className="text-[#C5A059] text-sm font-black uppercase tracking-widest">Growth Roadmap</span>
-              </div>
-              <h2 className="text-6xl font-black text-[#4A362D] tracking-tighter">{slide.title}</h2>
-              <p className="text-slate-500 font-bold text-2xl">{slide.subtitle}</p>
-            </div>
 
-            <div className="flex-1 grid grid-cols-3 gap-10">
-              {slide.items?.map((item, idx) => (
-                <div key={idx} className="relative flex flex-col group">
-                  <div className="flex-1 bg-white border border-slate-100 rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(74,54,45,0.05)] hover:shadow-[0_40px_80px_-15px_rgba(74,54,45,0.1)] transition-all duration-700 p-12 flex flex-col relative overflow-hidden group-hover:-translate-y-4">
-                    <div className="absolute top-0 right-0 w-40 h-40 bg-[#C5A059] opacity-[0.03] rounded-bl-full" />
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
-
-                    <div className="mb-10 flex flex-col gap-2">
-                      <span className="text-sm font-black text-[#C5A059] uppercase tracking-[0.2em] mb-2">Step {idx + 1}</span>
-                      <h4 className="text-3xl font-black text-[#4A362D] leading-tight">
-                        {item.label}
-                      </h4>
-                      <p className="text-xl font-bold text-[#C5A059]">{item.value}</p>
                     </div>
 
-                    <div className="flex-1 space-y-6">
-                      {item.details?.map((detail, dIdx) => (
-                        <div key={dIdx} className="flex items-start gap-4">
-                          <div className="mt-2 w-2 h-2 rounded-full bg-[#C5A059]/40" />
-                          <span className="text-xl font-bold text-slate-500 leading-snug">{detail}</span>
-                        </div>
-                      ))}
-                    </div>
+                    {idx < 2 && (
+                      <div className="absolute top-1/2 -right-4 translate-x-1/2 z-20 bg-white p-2 rounded-full border border-slate-100 shadow-sm text-slate-300">
+                        <ArrowRightCircle size={24} />
+                      </div>
+                    )}
                   </div>
-                  {idx < 2 && (
-                    <div className="absolute top-1/2 -right-5 translate-x-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-[#4A362D] rounded-full shadow-lg flex items-center justify-center text-white">
-                      <ArrowRight size={20} strokeWidth={3} />
-                    </div>
-                  )}
-                </div>
-              ))}
+                )
+              })}
             </div>
 
-<<<<<<< HEAD
             <div className="bg-slate-900 p-8 rounded-[2.5rem] flex items-center gap-10 shadow-2xl relative overflow-hidden group">
               <div className="absolute inset-0 bg-blue-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
               <div className="flex-shrink-0 w-20 h-20 bg-[#C05D17] rounded-3xl flex items-center justify-center text-white shadow-lg shadow-[#C05D17]/30">
@@ -172,26 +113,16 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
               <div className="flex-1">
                 <p className="text-2xl font-black text-white leading-snug">
                   Continuous <span className="text-[#C05D17]">Monitoring & Feedback Loop</span>
-=======
-            <div className="bg-[#4A362D] p-10 rounded-[3rem] flex items-center gap-12 shadow-2xl relative overflow-hidden group">
-              <div className="absolute inset-0 bg-[#C5A059]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-              <div className="flex-shrink-0 w-24 h-24 bg-[#C5A059] rounded-3xl flex items-center justify-center text-white shadow-xl">
-                <Repeat className="w-12 h-12" />
-              </div>
-              <div className="flex-1">
-                <p className="text-2xl font-black text-white leading-snug">
-                  Strategic Feedback Loop
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                 </p>
-                <p className="text-xl font-bold text-slate-300 mt-2">
+                <p className="text-[22px] font-bold text-slate-400 mt-1">
                   {slide.content}
                 </p>
               </div>
-              <div className="flex items-center gap-6">
-                {['Analysis', 'Design', 'Action', 'Scale'].map((step, idx) => (
+              <div className="flex items-center gap-4">
+                {['수집', '분석', '인사이트', '최적화'].map((step, idx) => (
                   <React.Fragment key={idx}>
-                    <span className="text-white text-lg font-black bg-white/5 border border-white/10 px-6 py-3 rounded-2xl uppercase tracking-widest">{step}</span>
-                    {idx < 3 && <div className="w-4 h-0.5 bg-white/20" />}
+                    <span className="text-white text-[20px] font-black bg-white/10 px-5 py-3 rounded-xl border border-white/10">{step}</span>
+                    {idx < 3 && <ChevronRight className="text-white/20" size={16} />}
                   </React.Fragment>
                 ))}
               </div>
@@ -201,24 +132,18 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
       case 'image-grid':
         return (
-          <div className="h-full flex flex-col space-y-12">
-            <div className="flex flex-col space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-1 bg-[#C5A059]" />
-                <span className="text-[#C5A059] text-sm font-black uppercase tracking-widest">Intelligence Analysis</span>
-              </div>
-              <h2 className="text-6xl font-black text-[#4A362D] tracking-tighter">{slide.title}</h2>
-              <p className="text-slate-500 font-bold text-2xl">{slide.subtitle}</p>
+          <div className="h-full flex flex-col space-y-8">
+            <div className="flex flex-col space-y-2">
+              <h2 className="text-5xl font-[950] text-[#111] tracking-tighter">{slide.title}</h2>
+              <p className="text-slate-500 font-bold text-lg">{slide.subtitle}</p>
             </div>
-
-            <div className="flex-1 grid grid-cols-2 gap-10">
+            <div className="flex-1 grid grid-cols-2 gap-8 min-h-0">
               {slide.images?.map((img, idx) => (
                 <div
                   key={idx}
-                  className="relative bg-white rounded-[3rem] overflow-hidden border border-[#4A362D]/5 shadow-[0_20px_40px_rgba(74,54,45,0.03)] hover:shadow-[0_40px_80px_rgba(74,54,45,0.08)] transition-all duration-700 group cursor-pointer"
+                  className="relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 group cursor-pointer"
                   onClick={() => setSelectedImage(img)}
                 >
-<<<<<<< HEAD
                   <div className="w-full relative">
                     <img
                       src={img}
@@ -246,42 +171,16 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                         </div>
                       )}
                     </div>
-=======
-                  <img src={img} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#4A362D]/90 via-[#4A362D]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  <div className="absolute bottom-0 inset-x-0 p-12 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700">
-                    {slide.items?.[idx] && (
-                      <div className="space-y-4">
-                        <div className="w-16 h-1 bg-[#C5A059] rounded-full mb-6" />
-                        <h4 className="text-4xl font-black text-white tracking-tight leading-tight">
-                          {slide.items[idx].label}
-                        </h4>
-                        <p className="text-2xl font-bold text-[#C5A059] mb-2 uppercase tracking-tight">
-                          {slide.items[idx].value}
-                        </p>
-                      </div>
-                    )}
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                   </div>
                 </div>
               ))}
             </div>
-
             {slide.content && (
-<<<<<<< HEAD
               <div className="bg-[#FAF7F2] border border-[#D6C7B9] p-6 rounded-2xl flex items-center gap-6">
                 <div className="bg-[#C05D17] text-white p-3 rounded-xl">
                   <Activity size={24} />
                 </div>
                 <p className="text-xl font-bold text-[#C05D17] leading-relaxed">
-=======
-              <div className="bg-white border border-[#4A362D]/10 px-8 py-6 rounded-3xl flex items-center gap-8 shadow-sm">
-                <div className="bg-[#4A362D] text-white p-4 rounded-2xl shadow-lg">
-                  <Activity size={28} />
-                </div>
-                <p className="text-2xl font-bold text-[#4A362D] leading-relaxed">
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                   {slide.content}
                 </p>
               </div>
@@ -291,41 +190,38 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
       case 'paradigm-shift':
         return (
-<<<<<<< HEAD
           <div className="flex flex-col space-y-8 py-10">
             <div className="flex flex-col space-y-2">
               <h2 className="text-5xl font-[950] text-[#111] tracking-tighter">{slide.title}</h2>
               <p className="text-slate-500 font-bold text-xl">{slide.subtitle}</p>
-=======
-          <div className="h-full flex flex-col space-y-12">
-            <div className="flex flex-col space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-1 bg-[#C5A059]" />
-                <span className="text-[#C5A059] text-sm font-black uppercase tracking-widest">Strategic Paradigm</span>
-              </div>
-              <h2 className="text-6xl font-black text-[#4A362D] tracking-tighter">{slide.title}</h2>
-              <p className="text-slate-500 font-bold text-2xl">{slide.subtitle}</p>
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
             </div>
 
-            <div className="flex-1 flex flex-col space-y-10">
-              <div className="grid grid-cols-[1fr_100px_1fr] items-center gap-10">
-                <div className="bg-white rounded-[3rem] p-12 border border-[#4A362D]/5 shadow-sm relative group">
-                  <span className="text-sm font-black text-slate-400 uppercase tracking-[0.3em] block mb-8">Traditional SEO</span>
-                  <div className="grid grid-cols-2 gap-8">
-                    <div className="space-y-2">
-                      <p className="text-sm font-black text-slate-300 uppercase">Focus</p>
-                      <p className="text-3xl font-black text-slate-800">Traffic</p>
+            <div className="flex-1 flex flex-col space-y-6">
+              <div className="grid grid-cols-[1fr_80px_1fr] items-center gap-6">
+                <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 relative group">
+                  <span className="text-[20px] font-black text-slate-400 uppercase tracking-widest block mb-4">기존 검색엔진 최적화 (SEO)</span>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-slate-400">
+                      <Search className="w-6 h-6" />
                     </div>
-                    <div className="space-y-2">
-                      <p className="text-sm font-black text-slate-300 uppercase">Process</p>
-                      <p className="text-3xl font-black text-slate-800">Crawl & Index</p>
+                    <div className="h-0.5 flex-1 bg-slate-200 rounded-full" />
+                    <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-slate-400">
+                      <ArrowUpRight className="w-6 h-6" />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white p-4 rounded-2xl border border-slate-100">
+                      <p className="text-[20px] font-bold text-slate-400">핵심 목표</p>
+                      <p className="text-[24px] font-black text-slate-700">검색 순위 노출</p>
+                    </div>
+                    <div className="bg-white p-4 rounded-2xl border border-slate-100">
+                      <p className="text-[20px] font-bold text-slate-400">사용자 경험</p>
+                      <p className="text-[24px] font-black text-slate-700">링크 리스트 선택</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-col items-center">
-<<<<<<< HEAD
                   <div className="w-10 h-10 bg-[#E8E2D9] rounded-full flex items-center justify-center text-[#C05D17]">
                     <ChevronRight size={24} strokeWidth={4} />
                   </div>
@@ -351,49 +247,25 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                     <div className="bg-[#4A362D] p-4 rounded-2xl shadow-sm">
                       <p className="text-[20px] font-bold text-[#F5F3EF]">사용자 경험</p>
                       <p className="text-[24px] font-black text-white">즉각 정답 획득</p>
-=======
-                  <div className="w-16 h-16 bg-[#C5A059] rounded-full flex items-center justify-center text-white shadow-xl">
-                    <ArrowRight size={32} strokeWidth={3} />
-                  </div>
-                  <span className="text-[10px] font-black text-[#C5A059] uppercase mt-4 tracking-tighter">Luxury Transition</span>
-                </div>
-
-                <div className="bg-[#4A362D] rounded-[3rem] p-12 shadow-[0_30px_60px_-15px_rgba(74,54,45,0.3)] relative group">
-                  <span className="text-sm font-black text-[#C5A059] uppercase tracking-[0.3em] block mb-8">Modern GEO</span>
-                  <div className="grid grid-cols-2 gap-8">
-                    <div className="space-y-2">
-                      <p className="text-sm font-black text-white/30 uppercase">Focus</p>
-                      <p className="text-3xl font-black text-white">Citation</p>
-                    </div>
-                    <div className="space-y-2">
-                      <p className="text-sm font-black text-white/30 uppercase">Process</p>
-                      <p className="text-3xl font-black text-[#C5A059]">Learn & Cite</p>
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-10">
-                <div className="bg-white border border-[#4A362D]/5 p-10 rounded-[2.5rem] shadow-sm space-y-6">
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-white border border-slate-200 p-8 rounded-3xl shadow-sm space-y-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-[#4A362D]">
+                    <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-900">
                       <MousePointer2 size={24} />
                     </div>
-                    <h4 className="text-2xl font-black text-[#4A362D]">Zero-Click Experience</h4>
+                    <h4 className="text-2xl font-black text-[#111]">행동의 변화</h4>
                   </div>
-<<<<<<< HEAD
                   <p className="text-[20px] font-bold text-slate-500 leading-relaxed">
                     검색 후 웹사이트를 방문하던 방식에서, 채팅창 내에서 정보를 획득하고 종료하는 <span className="text-[#C05D17] font-black underline underline-offset-4">'제로클릭(Zero-Click)'</span> 소비가 가속화됩니다.
-=======
-                  <p className="text-xl font-bold text-slate-500 leading-relaxed">
-                    AI interfaces now serve final answers directly. We pivot strategy to ensure <span className="text-[#C5A059] font-black underline underline-offset-8 decoration-[#C5A059]/30">brand dominance</span> within those answers.
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                   </p>
                 </div>
-                <div className="bg-white border border-[#4A362D]/5 p-10 rounded-[2.5rem] shadow-sm space-y-6">
+                <div className="bg-white border border-slate-200 p-8 rounded-3xl shadow-sm space-y-4">
                   <div className="flex items-center gap-4">
-<<<<<<< HEAD
                     <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-[#4A362D]">
                       <TargetIcon size={24} />
                     </div>
@@ -420,15 +292,6 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                   <p className="text-[26px] font-bold text-slate-300 leading-relaxed flex-1">
                     인공지능(AI)이 브랜드를 <span className="text-white font-black underline underline-offset-4 decoration-white/50">가장 신뢰할 수 있는 정보원</span>으로 인식하게 하여,<br />
                     답변 생성 시 우리 정보를 우선적으로 인용하게 만드는 <span className="text-[#C05D17] font-black">차세대 데이터 구조화 최적화 전략</span>입니다.
-=======
-                    <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-[#4A362D]">
-                      <TargetIcon size={24} />
-                    </div>
-                    <h4 className="text-2xl font-black text-[#4A362D]">Authority Metrics</h4>
-                  </div>
-                  <p className="text-xl font-bold text-slate-500 leading-relaxed">
-                    Traffic is no longer the only goal. <span className="text-[#C5A059] font-black underline underline-offset-8 decoration-[#C5A059]/30">Citation Frequency</span> and Answer Accuracy are the new KPIs for digital leadership.
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                   </p>
                 </div>
               </div>
@@ -438,26 +301,14 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
 
       case 'ai-mechanism':
         return (
-<<<<<<< HEAD
           <div className="flex flex-col space-y-6 py-10">
             <div className="flex flex-col space-y-2 text-center">
               <h2 className="text-5xl font-[950] text-[#111] tracking-tighter">{slide.title}</h2>
               <p className="text-slate-500 font-bold text-xl">{slide.subtitle}</p>
-=======
-          <div className="h-full flex flex-col space-y-12">
-            <div className="flex flex-col space-y-4 text-center items-center">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-1 bg-[#C5A059]" />
-                <span className="text-[#C5A059] text-sm font-black uppercase tracking-widest">Logic Flow</span>
-              </div>
-              <h2 className="text-6xl font-black text-[#4A362D] tracking-tighter">{slide.title}</h2>
-              <p className="text-slate-500 font-bold text-2xl">{slide.subtitle}</p>
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
             </div>
 
-            <div className="flex-1 grid grid-cols-4 gap-8">
+            <div className="flex-1 grid grid-cols-4 gap-6 items-stretch py-4">
               {slide.items?.map((step, idx) => (
-<<<<<<< HEAD
                 <div key={idx} className={`relative flex flex-col rounded-[3rem] border transition-all duration-500 hover:-translate-y-2 ${idx === 1 ? 'bg-rose-50 border-rose-200 shadow-xl shadow-rose-100/50' : 'bg-white border-slate-100 shadow-sm hover:shadow-xl'}`}>
                   {/* Larger Image Section */}
                   <div
@@ -492,59 +343,38 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                             <span className="text-[19px] font-semibold text-slate-400 leading-tight">{detail}</span>
                           </div>
                         ))}
-=======
-                <div key={idx} className={`relative flex flex-col rounded-[3.5rem] border-2 transition-all duration-700 bg-white hover:-translate-y-4 ${idx === 1 ? 'border-[#C5A059] shadow-[0_40px_80px_rgba(197,160,89,0.15)]' : 'border-slate-50 shadow-sm hover:shadow-2xl'}`}>
-                  <div className="w-full h-56 rounded-t-[3.3rem] overflow-hidden relative cursor-pointer group" onClick={() => (step as any).image && setSelectedImage((step as any).image)}>
-                    {(step as any).image ? (
-                      <img src={(step as any).image} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                    ) : (
-                      <div className="w-full h-full bg-[#F4F1ED] flex items-center justify-center text-[#4A362D]/20">
-                        <ImageIcon size={48} />
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                       </div>
-                    )
-                    }
-                    <div className="absolute inset-0 bg-[#4A362D]/5 group-hover:bg-transparent transition-colors" />
-                    <div className="absolute top-6 left-8 bg-[#4A362D] text-white px-4 py-2 rounded-full shadow-lg">
-                      <span className="text-xs font-black uppercase tracking-tighter">Phase 0{idx + 1}</span>
+                    )}
+
+                    <div className={`mt-8 flex justify-center opacity-10 group-hover:opacity-30 transition-opacity`}>
+                      {idx === 0 ? <Terminal size={28} /> : idx === 1 ? <Database size={28} /> : idx === 2 ? <Binary size={28} /> : <ExternalLink size={28} />}
                     </div>
                   </div>
 
-                  <div className="p-10 flex flex-col flex-1">
-                    <div className="space-y-4 mb-2 text-center">
-                      <h4 className={`text-2xl font-black tracking-tight leading-tight ${idx === 1 ? 'text-[#C5A059]' : 'text-[#4A362D]'}`}>{step.label}</h4>
-                      <p className="text-lg font-bold text-slate-500 leading-snug">{step.value}</p>
+                  {idx < 3 && (
+                    <div className="absolute top-[32%] -right-3 -translate-y-1/2 z-20 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center text-slate-300 border border-slate-100 pointer-events-none">
+                      <ChevronRight size={18} strokeWidth={4} />
                     </div>
-
-                    <div className="mt-8 space-y-4 pt-8 border-t border-slate-50 flex-1">
-                      {step.details?.map((detail, dIdx) => (
-                        <div key={dIdx} className="flex items-center gap-3">
-                          <div className={`w-1.5 h-1.5 rounded-full ${idx === 1 ? 'bg-[#C5A059]' : 'bg-[#4A362D]/10'}`} />
-                          <span className="text-lg font-bold text-slate-400">{getStrippedDetail(detail)}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </div>
 
-            <div className="bg-[#B22222] px-12 py-8 rounded-[3rem] flex items-center gap-12 shadow-2xl relative overflow-hidden group">
+            <div className="bg-rose-600 px-8 py-6 rounded-[2rem] flex items-center gap-10 shadow-lg relative overflow-hidden group">
               <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-[0.05] transition-opacity duration-700" />
-              <div className="flex-shrink-0 bg-white/20 p-5 rounded-3xl border border-white/20 backdrop-blur-md">
-                <AlertTriangle className="text-white w-10 h-10" />
+              <div className="flex-shrink-0 bg-white/20 p-4 rounded-2xl border border-white/30 backdrop-blur-sm">
+                <AlertTriangle className="text-white w-8 h-8" />
               </div>
-              <div className="flex-1">
-                <p className="text-3xl font-black text-white leading-snug">
-                  <span className="bg-white text-[#B22222] px-4 py-1.5 rounded-xl mr-6 text-xl font-black">CRITICAL RISK</span>
-                  Insufficient <span className="underline underline-offset-8 decoration-white/40 italic">Schema Data</span> leads to structural exclusion during AI training cycles.
+              <div className="flex-1 relative z-10">
+                <p className="text-[26px] font-black text-white leading-snug">
+                  <span className="bg-white text-rose-600 px-3 py-1 rounded-lg mr-4 text-[22px]">CRITICAL POINT</span>
+                  2단계에서 <span className="underline underline-offset-8 decoration-white/50 font-bold italic">구조화된 정보(Schema)가 없으면</span>, AI는 해당 브랜드를 즉시 배제합니다.
                 </p>
               </div>
             </div>
           </div>
         );
 
-<<<<<<< HEAD
       case 'table':
         return (
           <div className="h-full flex flex-col space-y-10">
@@ -641,21 +471,10 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                   </h2>
                   <p className="text-slate-500 font-bold text-[20px] mt-2 tracking-tight">{slide.subtitle}</p>
                 </div>
-=======
-      case 'pillars':
-        return (
-          <div className="h-full flex flex-col space-y-12">
-            <div className="flex flex-col space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-1 bg-[#C5A059]" />
-                <span className="text-[#C5A059] text-sm font-black uppercase tracking-widest">Process Engineering</span>
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
               </div>
-              <h2 className="text-6xl font-black text-[#4A362D] tracking-tighter">{slide.title}</h2>
-              <p className="text-slate-500 font-bold text-2xl">{slide.subtitle}</p>
+
             </div>
 
-<<<<<<< HEAD
             <div className="grid grid-cols-3 gap-8 flex-1 min-h-0 relative z-10">
               {slide.items?.map((item, idx) => {
                 const IconComp = idx === 0 ? Search : idx === 1 ? Target : Play;
@@ -673,50 +492,24 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                           <IconComp className={`w-6 h-6 ${accentColor} `} strokeWidth={3} />
                         </div>
                         <h3 className="text-2xl font-[900] text-[#4A362D] tracking-tight">{item.label}</h3>
-=======
-            <div className="flex-1 grid grid-cols-3 gap-10 pb-8">
-              {slide.items?.map((item, idx) => (
-                <div key={idx} className="flex flex-col bg-white border border-[#4A362D]/5 rounded-[3.5rem] shadow-[0_20px_50px_rgba(74,54,45,0.02)] hover:shadow-[0_40px_80px_rgba(74,54,45,0.06)] transition-all duration-700 overflow-hidden group">
-                  <div className="bg-[#4A362D]/5 p-10 flex items-center justify-between border-b border-[#4A362D]/5">
-                    <div className="flex items-center gap-5">
-                      <div className="p-4 bg-white rounded-2xl shadow-sm text-[#4A362D] group-hover:bg-[#4A362D] group-hover:text-white transition-all duration-500">
-                        {idx === 0 ? <Search size={28} /> : idx === 1 ? <Target size={28} /> : <Play size={28} />}
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                       </div>
-                      <h3 className="text-3xl font-black text-[#4A362D]">{item.label}</h3>
-                    </div>
-                  </div>
-
-                  <div className="p-10 flex-1 flex flex-col space-y-10">
-                    <div className="space-y-6 flex-1">
-                      {item.details?.map((detail, dIdx) => (
-                        <div key={dIdx} className="flex items-start gap-4 p-4 bg-slate-50/50 rounded-2xl border border-transparent hover:border-[#4A362D]/10 hover:bg-white transition-all">
-                          <div className="mt-1.5 w-4 h-4 rounded-full border-[3px] border-[#C5A059] bg-white flex-shrink-0" />
-                          <span className="text-lg font-bold text-slate-500 leading-snug">{getStrippedDetail(detail)}</span>
-                        </div>
-                      ))}
                     </div>
 
-                    {item.deliverables && (
-                      <div className="pt-10 border-t border-slate-100 space-y-6">
-                        <span className="text-xs font-black text-[#C5A059] uppercase tracking-[0.2em] block">Official Outputs</span>
+                    <div className="px-10 pb-10 flex-1 flex flex-col space-y-8 overflow-y-auto custom-scrollbar">
+                      <div className="space-y-6">
                         <div className="grid grid-cols-1 gap-3">
-                          {item.deliverables.map((del, delIdx) => (
-                            <button
-                              key={delIdx}
-                              onClick={() => del.example && setSelectedDeliverable(del)}
-                              className={`flex items-center justify-between px-6 py-5 rounded-2xl transition-all ${del.example ? 'bg-[#4A362D] text-white hover:bg-[#33251F] shadow-xl' : 'bg-slate-50 text-slate-300 cursor-default'}`}
-                            >
-                              <div className="flex items-center gap-3">
-                                <FileText size={18} className={del.example ? 'text-[#C5A059]' : 'text-slate-200'} />
-                                <span className="text-xl font-black">{del.name}</span>
+                          {item.details?.map((detail, dIdx) => (
+                            <div key={dIdx} className="group/item flex items-start gap-4 p-5 bg-white/60 rounded-2xl border border-white/80 shadow-sm hover:bg-white hover:border-blue-100 transition-all">
+                              <div className={`mt-0.5 w-6 h-6 rounded-full flex items-center justify-center ${accentBg} text-white shrink-0`}>
+                                <Check size={14} strokeWidth={4} />
                               </div>
-                              {del.example && <ArrowUpRight size={20} />}
-                            </button>
+                              <span className="text-[18px] font-[700] text-slate-700 leading-snug group-hover/item:text-slate-900">
+                                {detail.includes(':') ? detail.split(':')[1].trim() : detail}
+                              </span>
+                            </div>
                           ))}
                         </div>
                       </div>
-<<<<<<< HEAD
 
                       {item.deliverables && (
                         <div className="mt-auto pt-8 border-t border-slate-200/40">
@@ -770,19 +563,24 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                         </div>
                       )}
                     </div>
-=======
-                    )}
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
+
+
           </div>
         );
 
-      case 'pipeline':
+      case 'content': {
+        const contentIcons: Record<string, any> = {
+          "언급 여부": Search,
+          "언급 순서": ListOrdered,
+          "맥락 추출": Quote,
+          "감성 분석": Smile,
+          "경쟁사 감지": Eye
+        };
         return (
-<<<<<<< HEAD
           <div className="flex flex-col space-y-12 py-10">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-6">
@@ -986,139 +784,39 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                 />
                 <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5 rounded-[2.5rem]" />
               </div>
-=======
-          <div className="h-full flex flex-col space-y-12">
-            <div className="flex flex-col space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-1 bg-[#C5A059]" />
-                <span className="text-[#C5A059] text-sm font-black uppercase tracking-widest">Automation Pipeline</span>
-              </div>
-              <h2 className="text-6xl font-black text-[#4A362D] tracking-tighter">{slide.title}</h2>
-              <p className="text-slate-500 font-bold text-2xl">{slide.subtitle}</p>
-            </div>
-
-            <div className="flex-1 grid grid-cols-2 gap-10 min-h-0">
-              <div className="bg-white border border-[#4A362D]/5 rounded-[3.5rem] p-12 flex flex-col items-center justify-center shadow-sm relative group overflow-hidden">
-                <div className="absolute top-0 inset-x-0 h-2 bg-[#C5A059] opacity-20" />
-                <div className="mb-12 flex items-center gap-3">
-                  <User size={20} className="text-[#C5A059]" />
-                  <span className="text-sm font-black text-slate-400 uppercase tracking-[0.3em]">Human Insight</span>
-                </div>
-                <div className="space-y-6 w-full max-w-sm">
-                  {['Private Browser Shell', 'Question Engineering', 'Raw Data Ingestion'].map((step, i) => (
-                    <div key={i} className="flex flex-col items-center">
-                      <div className="w-full bg-[#F4F1ED]/50 rounded-2xl py-5 px-8 text-center border border-[#4A362D]/10">
-                        <span className="text-xl font-bold text-[#4A362D]/70">{step}</span>
-                      </div>
-                      {i < 2 && <ArrowDown size={18} className="text-slate-200 my-3" />}
-                    </div>
-                  ))}
-                  <ArrowDown size={18} className="text-slate-200 mx-auto my-3" />
-                  <div className="w-full bg-[#333] rounded-[2rem] py-6 px-10 text-center shadow-2xl">
-                    <span className="text-xl font-black text-[#C5A059] tracking-tight">Structured Data Staging</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#4A362D] rounded-[3.5rem] p-12 flex flex-col items-center justify-center shadow-2xl relative group overflow-hidden">
-                <div className="absolute top-0 inset-x-0 h-2 bg-[#C5A059]" />
-                <div className="mb-12 flex items-center gap-3 text-white/50">
-                  <Bot size={20} />
-                  <span className="text-sm font-black uppercase tracking-[0.3em]">AI Synthesis Engine</span>
-                </div>
-                <div className="space-y-8 w-full max-w-sm flex flex-col items-center">
-                  <div className="w-full bg-white/5 border border-white/10 rounded-[2.5rem] p-10 backdrop-blur-3xl">
-                    <div className="flex items-center gap-3 mb-8 justify-center">
-                      <Cpu size={24} className="text-[#C5A059]" />
-                      <span className="text-xl font-black text-white uppercase tracking-widest">Model: Claude 3.5</span>
-                    </div>
-                    <div className="grid grid-cols-2 gap-y-4 gap-x-6">
-                      {['Citation Map', 'Positional Audit', 'Sentiment Trace', 'Market Delta'].map((item, i) => (
-                        <div key={i} className="flex items-center gap-3">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
-                          <span className="text-lg font-bold text-white/40">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <ArrowDown size={24} className="text-[#C5A059]" />
-                  <div className="w-full bg-[#C5A059] rounded-[2.2rem] py-[1.2rem] px-10 text-center shadow-[0_25px_60px_rgba(197,160,89,0.3)] border border-white/20">
-                    <span className="text-2xl font-black text-[#4A362D] tracking-tight">Executive Dashboarding</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white border-2 border-[#4A362D]/5 rounded-[3rem] p-8 flex gap-10 items-center shadow-sm">
-              <div className="flex-1 flex items-center gap-6 p-6 border-r border-slate-100/50">
-                <div className="w-20 h-20 rounded-[2rem] bg-[#F4F1ED] flex items-center justify-center text-[#4A362D]">
-                  <User size={36} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black text-[#4A362D] mb-1">Human Role</h3>
-                  <p className="text-lg font-bold text-slate-400">Strategic Intent Mapping</p>
-                </div>
-              </div>
-              <div className="flex-1 flex items-center gap-6 p-6">
-                <div className="w-20 h-20 rounded-[2rem] bg-[#4A362D] flex items-center justify-center text-[#C5A059] shadow-inner">
-                  <Bot size={36} strokeWidth={1.5} />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-black text-[#4A362D] mb-1">AI Processor</h3>
-                  <p className="text-lg font-bold text-slate-400">Automated Market Distillation</p>
-                </div>
-              </div>
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
             </div>
           </div>
         );
 
       case 'master-plan':
+        const timelineData = slide.items?.[0]?.details as any[] || [];
         const checklists = slide.items?.[1]?.details as any[] || [];
+        const justifications = slide.items?.[2]?.details as any[] || [];
         const reports = slide.items?.[3]?.details as any[] || [];
 
         return (
-<<<<<<< HEAD
           <div className="flex flex-col space-y-6 py-10">
             <div className="flex justify-between items-end flex-shrink-0">
               <div className="flex flex-col space-y-2">
                 <h2 className="text-4xl font-[950] text-[#4A362D] tracking-tighter">{slide.title}</h2>
                 <p className="text-slate-500 font-bold text-lg">{slide.subtitle}</p>
-=======
-          <div className="h-full flex flex-col space-y-12">
-            <div className="flex justify-between items-end">
-              <div className="flex flex-col space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-1 bg-[#C5A059]" />
-                  <span className="text-[#C5A059] text-sm font-black uppercase tracking-widest">Sustainability</span>
-                </div>
-                <h2 className="text-6xl font-black text-[#4A362D] tracking-tighter">{slide.title}</h2>
-                <p className="text-slate-500 font-bold text-2xl">{slide.subtitle}</p>
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex gap-6 mb-1">
                 {reports.map((report, idx) => (
-<<<<<<< HEAD
                   <div key={idx} className="bg-white border border-slate-200 px-6 py-4 rounded-2xl flex items-center gap-4 hover:border-[#B18B5E] hover:shadow-lg transition-all cursor-default group">
                     <div className="bg-[#FAF7F2] p-2.5 rounded-xl group-hover:bg-[#E8DCC6]/40 transition-colors">
                       <FileText size={20} className="text-[#B18B5E]" strokeWidth={2.5} />
-=======
-                  <div key={idx} className="bg-white border border-[#4A362D]/5 px-8 py-5 rounded-[2.5rem] flex items-center gap-4 group hover:border-[#C5A059]/30 transition-all">
-                    <div className="bg-[#F4F1ED] p-3 rounded-2xl group-hover:bg-[#C5A059] group-hover:text-white transition-all duration-500 text-[#4A362D]">
-                      <FileText size={20} className="group-hover:text-white" />
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs font-black text-slate-300 uppercase tracking-widest mb-1">{report.title}</span>
-                      <span className="text-xl font-black text-[#4A362D] leading-none">{report.schedule}</span>
+                      <span className="text-[14px] font-black text-slate-400 uppercase tracking-widest mb-1">{report.title}</span>
+                      <span className="text-[18px] font-black text-slate-800 leading-none group-hover:text-blue-700 transition-colors">{report.schedule}</span>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-<<<<<<< HEAD
             {/* 1. Timeline Section */}
             <div className="w-full bg-white border border-slate-200 rounded-[1.5rem] shadow-xl flex-shrink-0 flex flex-col overflow-hidden relative">
               {/* Months Header */}
@@ -1204,27 +902,14 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                       PHASE 0{idx + 1}
                     </span>
                     <h4 className="text-2xl font-black text-[#4A362D]">{group.phase}</h4>
-=======
-            <div className="flex-1 grid grid-cols-3 gap-10">
-              {checklists.map((group, idx) => (
-                <div key={idx} className="rounded-[3.5rem] p-12 flex flex-col border border-slate-50 bg-white shadow-sm hover:border-[#C5A059]/30 transition-all duration-700">
-                  <div className="flex flex-col gap-2 mb-10">
-                    <span className="text-xs font-black text-[#C5A059]/40 uppercase tracking-[0.3em]">Focus 0{idx + 1}</span>
-                    <h4 className="text-3xl font-black text-[#4A362D]">{group.phase}</h4>
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                   </div>
-                  <div className="space-y-6 flex-1">
+                  <div className="space-y-6 flex-1 overflow-y-auto custom-scrollbar">
                     {group.items.map((item: string, i: number) => (
-<<<<<<< HEAD
                       <div key={i} className="flex items-start gap-4 group">
                         <div className="mt-1 w-6 h-6 rounded-lg border border-[#D6C7B9] text-[#D6C7B9] flex items-center justify-center flex-shrink-0 group-hover:border-[#C05D17] group-hover:text-[#C05D17] transition-colors">
-=======
-                      <div key={i} className="flex items-start gap-4">
-                        <div className="mt-1.5 w-6 h-6 rounded-lg border-2 border-slate-100 flex items-center justify-center flex-shrink-0 text-slate-100 group-hover:border-[#C5A059] group-hover:text-[#C5A059] transition-colors">
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                           <Check size={14} strokeWidth={4} />
                         </div>
-                        <p className="text-xl font-bold leading-relaxed text-slate-400 group-hover:text-slate-600 transition-colors">
+                        <p className="text-[17px] font-bold leading-relaxed text-slate-600 group-hover:text-slate-900 transition-colors">
                           {item}
                         </p>
                       </div>
@@ -1234,35 +919,27 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
               ))}
             </div>
 
-<<<<<<< HEAD
             {/* 3. Justification Section */}
             <div className="grid grid-cols-3 gap-6 flex-shrink-0">
               {justifications.map((item, idx) => (
                 <div key={idx} className="bg-[#4A362D] rounded-2xl p-6 flex items-center gap-5 text-white">
                   <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
                     {idx === 0 ? <History size={24} className="text-[#C05D17]" /> : idx === 1 ? <ShieldCheck size={24} className="text-[#C05D17]" /> : <RefreshCw size={24} className="text-[#C05D17]" />}
-=======
-            <div className="bg-[#4A362D] rounded-[3.5rem] p-10 flex justify-between items-center text-white/90 shadow-2xl">
-              <div className="flex items-center gap-6">
-                <div className="w-3 h-10 bg-[#C5A059] rounded-full" />
-                <p className="text-3xl font-black tracking-tight">PDCA Operational Cycle</p>
-              </div>
-              <div className="flex gap-12">
-                {['Audit', 'Strategize', 'Deploy', 'Optimize'].map((step, i) => (
-                  <div key={i} className="flex items-center gap-4 opacity-40 hover:opacity-100 transition-opacity cursor-default">
-                    <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs font-black text-[#C5A059]">0{i + 1}</div>
-                    <span className="text-xl font-black uppercase tracking-widest">{step}</span>
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                   </div>
-                ))}
-              </div>
+                  <div>
+                    <h5 className="text-sm font-bold text-slate-400 mb-1">{item.title}</h5>
+                    <p className="text-[15px] font-medium leading-tight text-slate-200">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         );
 
-      case 'service-loop':
+      case 'service-loop': {
+        const loopIcons = [ShieldCheck, Handshake, Cpu];
+
         return (
-<<<<<<< HEAD
           <div className="flex flex-col items-center justify-between py-12 relative overflow-hidden flex-1 min-h-0">
             <div className="w-full flex flex-col items-center space-y-16 relative z-10 flex-1 justify-center">
               <div className="bg-[#FAF7F2] px-20 py-6 rounded-full shadow-lg shadow-[#B18B5E]/10 border border-[#E8DCC6] flex items-center gap-6 transition-transform hover:scale-105">
@@ -1305,122 +982,63 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                   변화하는 AI 환경에서 브랜드의 정보 주권과 압도적인 기술 우위를 보장합니다.
                 </p>
               </div>
-=======
-          <div className="h-full flex flex-col items-center justify-center space-y-20 py-10">
-            <div className="flex flex-col items-center text-center space-y-8 max-w-5xl">
-              <div className="bg-[#F4F1ED] px-8 py-3 rounded-full border border-[#4A362D]/10 mb-2">
-                <p className="text-[#C5A059] text-2xl font-black tracking-[0.4em] uppercase">
-                  Governance Architecture
-                </p>
-              </div>
-              <h2 className="text-7xl font-black text-[#4A362D] tracking-tighter leading-tight">
-                {slide.title}
-              </h2>
-            </div>
-
-            <div className="flex items-center gap-12 pt-4">
-              {slide.items?.map((item, idx) => {
-                const loopIcons = [ShieldCheck, Handshake, Cpu];
-                const MainIcon = loopIcons[idx];
-                return (
-                  <div key={idx} className="w-[420px] bg-white border border-slate-50 rounded-[4.5rem] p-16 flex flex-col items-center text-center shadow-[0_30px_70px_-15px_rgba(74,54,45,0.06)] hover:shadow-[0_50px_100px_-20px_rgba(74,54,45,0.12)] transition-all duration-700 hover:-translate-y-8 group">
-                    <div className="w-28 h-28 bg-[#F4F1ED] rounded-[2.5rem] flex items-center justify-center text-[#4A362D]/20 mb-12 group-hover:bg-[#4A362D] group-hover:text-[#C5A059] transition-all duration-700 shadow-inner">
-                      <MainIcon size={56} strokeWidth={1} />
-                    </div>
-                    <h4 className="text-3xl font-black text-[#4A362D] mb-6 group-hover:text-[#C5A059] transition-colors">{item.label}</h4>
-                    <div className="w-16 h-1 bg-[#C5A059]/20 rounded-full mb-10 group-hover:w-32 group-hover:bg-[#C5A059] transition-all duration-700" />
-                    <p className="text-2xl font-bold text-slate-400 leading-relaxed whitespace-pre-line group-hover:text-slate-600">
-                      {item.value}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="max-w-6xl text-center">
-              <p className="text-3xl font-black text-[#4A362D]/80 leading-[1.6] tracking-tight border-b-[10px] border-[#C5A059]/10 pb-12 px-10">
-                {slide.content}
-              </p>
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
             </div>
           </div>
         );
-
-      case 'full-image':
-        return (
-          <div className="h-full flex flex-col space-y-12">
-            <div className="flex flex-col space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-1 bg-[#C5A059]" />
-                <span className="text-[#C5A059] text-sm font-black uppercase tracking-widest">Platform Interface</span>
-              </div>
-              <h2 className="text-6xl font-black text-[#4A362D] tracking-tighter">{slide.title}</h2>
-              <p className="text-slate-500 font-bold text-2xl">{slide.subtitle}</p>
-            </div>
-            <div className="flex-1 relative rounded-[4rem] overflow-hidden shadow-2xl border-[12px] border-white bg-slate-100 flex items-start">
-              <img
-                src={slide.content as string}
-                alt="Dashboard"
-                className="w-full h-auto object-cover object-top hover:scale-[1.03] transition-transform duration-1000 origin-top"
-              />
-            </div>
-          </div>
-        );
-    }
-    return null;
-  };
-
-  const getStrippedDetail = (detail: string) => {
-    return detail.includes(':') ? detail.split(':')[1].trim() : detail;
-  }
+      }
+    } // Close the switch statement
+    return null; // Default return for renderContent
+  }; // Close the renderContent function
 
   return (
     <>
-      <div className="h-full w-full">
-        {renderContent()}
-      </div>
+      {renderContent()}
 
+      {/* Global Image Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-[200] flex items-center justify-center p-12 bg-[#4A362D]/95 backdrop-blur-2xl cursor-zoom-out slide-enter"
+          className="fixed inset-0 z-[200] flex items-center justify-center p-12 bg-slate-950/90 backdrop-blur-xl slide-enter cursor-zoom-out"
           onClick={closeModal}
         >
-          <div className="relative max-w-7xl max-h-full">
-            <img src={selectedImage} alt="" className="w-full h-full object-contain shadow-2xl rounded-3xl border border-white/10" onClick={(e) => e.stopPropagation()} />
-            <button onClick={closeModal} className="absolute -top-12 -right-12 text-white/50 hover:text-white transition-all">
-              <X size={56} />
+          <div className="relative max-w-7xl max-h-full group">
+            <img
+              src={selectedImage}
+              alt="Zoomed view"
+              className="w-full h-full object-contain rounded-3xl shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={closeModal}
+              className="absolute -top-6 -right-6 p-4 bg-white text-slate-900 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all z-10 opacity-0 group-hover:opacity-100"
+            >
+              <X className="w-8 h-8" />
             </button>
           </div>
         </div>
       )}
 
+      {/* Global Deliverable Modal */}
       {selectedDeliverable && (
-<<<<<<< HEAD
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-8 bg-slate-900/40 backdrop-blur-md slide-enter">
           <div className="bg-white/90 backdrop-blur-2xl w-full max-w-4xl max-h-[90vh] rounded-[3rem] shadow-2xl overflow-hidden border border-white/40 flex flex-col">
             <div className="bg-[#4A362D] px-12 py-10 flex items-center justify-between text-white">
               <div className="flex items-center gap-6">
                 <div className="p-4 bg-[#C05D17] rounded-2xl">
                   <FileText className="w-8 h-8" />
-=======
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-10 bg-[#4A362D]/80 backdrop-blur-3xl slide-enter">
-          <div className="bg-white w-full max-w-5xl h-[88vh] rounded-[5rem] shadow-2xl flex flex-col overflow-hidden border border-white/20">
-            <div className="bg-[#333] px-20 py-12 flex items-center justify-between">
-              <div className="flex items-center gap-8">
-                <div className="p-6 bg-[#C5A059] rounded-[2.5rem] shadow-lg">
-                  <FileText className="text-white w-8 h-8" />
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
                 </div>
                 <div>
-                  <h3 className="text-4xl font-black text-white tracking-tight">{selectedDeliverable.name}</h3>
-                  <p className="text-[#C5A059] text-[10px] font-black uppercase tracking-[0.5em] mt-3 italic">STRATEGIC SOURCE DOCUMENT</p>
+                  <h3 className="text-3xl font-[900] tracking-tight">{selectedDeliverable.name}</h3>
+                  <p className="text-slate-400 text-[18px] font-bold uppercase tracking-widest mt-1">Output Example Preview</p>
                 </div>
               </div>
-              <button onClick={closeModal} className="text-white/20 hover:text-white transition-colors">
-                <X size={48} />
+              <button
+                onClick={closeModal}
+                className="p-4 hover:bg-white/10 rounded-full transition-colors flex items-center gap-2 group/close"
+              >
+                <span className="text-sm font-bold uppercase tracking-widest opacity-0 group-hover/close:opacity-100 transition-opacity">Close</span>
+                <X className="w-10 h-10" />
               </button>
             </div>
-<<<<<<< HEAD
 
             <div className="p-12 overflow-y-auto flex-1 custom-scrollbar bg-slate-50/50">
               {/* Document/Report Paper */}
@@ -1626,26 +1244,13 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                   리포트 내용 확인 완료
                   <CheckCircle2 size={24} className="group-hover:scale-125 transition-transform" />
                 </button>
-=======
-            <div className="flex-1 overflow-y-auto p-20 custom-scrollbar bg-[#F4F1ED]/30">
-              <div className="max-w-4xl mx-auto bg-white p-24 shadow-[0_50px_120px_rgba(74,54,45,0.12)] rounded-[3rem] border border-slate-50 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#C5A059] opacity-[0.05] rounded-bl-full" />
-                <pre className="whitespace-pre-wrap text-2xl font-bold leading-[1.8] text-[#4A362D]/80 font-['Pretendard'] tracking-tight">
-                  {selectedDeliverable.example}
-                </pre>
->>>>>>> acae0ce417c76241b8b2e82dbb6c006d8e53614f
               </div>
-            </div>
-            <div className="px-20 py-12 bg-white border-t border-slate-100 flex justify-center">
-              <button onClick={closeModal} className="px-24 py-7 bg-[#C5A059] rounded-[2.5rem] text-[#4A362D] font-black text-2xl hover:bg-[#4A362D] hover:text-[#C5A059] transition-all shadow-xl shadow-[#C5A059]/20">
-                Close Document Access
-              </button>
             </div>
           </div>
         </div>
       )}
     </>
   );
-};
+}; // Close the SlideContent component
 
 export default SlideContent;
