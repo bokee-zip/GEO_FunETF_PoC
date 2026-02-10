@@ -770,19 +770,21 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
       }
       case 'full-image':
         return (
-          <div className="flex flex-col space-y-8 py-10">
-            <div className="flex flex-col space-y-2 flex-shrink-0">
+          <div className="flex flex-col space-y-8 py-10 w-full h-full max-w-7xl mx-auto">
+            <div className="flex flex-col space-y-4 flex-shrink-0 text-center">
               <h2 className="text-5xl font-[950] text-[#4A362D] tracking-tighter">{slide.title}</h2>
               <p className="text-slate-500 font-bold text-xl">{slide.subtitle}</p>
             </div>
-            <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 bg-white group min-h-[600px]">
-              <div className="w-full h-full relative overflow-hidden">
-                <img
-                  src={slide.content as string}
-                  alt="Dashboard View"
-                  className="w-full object-cover object-top hover:scale-[1.02] transition-transform duration-700 origin-top"
-                />
-                <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5 rounded-[2.5rem]" />
+            <div className="relative rounded-[3rem] overflow-hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] border border-slate-200 bg-white group h-[820px]">
+              <img
+                src={slide.content as string}
+                alt="Dashboard View"
+                className="w-full h-full object-cover object-top hover:scale-[1.01] transition-transform duration-1000"
+              />
+              <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/5 rounded-[3rem]" />
+
+              <div className="absolute top-6 left-6 bg-[#C05D17] text-white px-5 py-2 rounded-full text-[13px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+                Dashboard Overview
               </div>
             </div>
           </div>
@@ -932,6 +934,47 @@ const SlideContent: React.FC<{ slide: SlideData }> = ({ slide }) => {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        );
+
+      case 'dual-writing':
+        return (
+          <div className="flex flex-col space-y-12 py-10 h-full">
+            <div className="flex flex-col space-y-2">
+              <h2 className="text-5xl font-[950] text-[#111] tracking-tighter">{slide.title}</h2>
+              <p className="text-slate-500 font-bold text-xl">{slide.subtitle}</p>
+            </div>
+
+            <div className="flex-1 grid grid-cols-[1.5fr_1fr] gap-16 items-center">
+              {/* Left Side: Image from Public Folder */}
+              <div className="relative h-[720px] flex items-center justify-center rounded-[3rem] overflow-hidden shadow-2xl bg-white/50 border border-white/20">
+                <img
+                  src="/double-writing-layer.jpg"
+                  alt="Double Writing Layer Structure"
+                  className="w-full h-full object-contain p-8 hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+
+              {/* Right Side: Content */}
+              <div className="space-y-10">
+                <div className="bg-[#FAF7F2] border border-[#D6C7B9] p-10 rounded-[3rem] shadow-sm relative overflow-hidden group">
+                  <p className="text-[22px] font-bold text-[#4A362D] leading-relaxed">
+                    {slide.content}
+                  </p>
+                </div>
+
+                <div className="space-y-6">
+                  {slide.items?.map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-6 group">
+                      <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-[#C05D17] shadow-sm group-hover:bg-[#C05D17] group-hover:text-white transition-all">
+                        <Check size={24} strokeWidth={3} />
+                      </div>
+                      <span className="text-[24px] font-black text-[#111] tracking-tight">{item.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         );
