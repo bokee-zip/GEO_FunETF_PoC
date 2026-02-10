@@ -12,7 +12,7 @@ export const SLIDES: SlideData[] = [
   },
   {
     id: 1,
-    title: "1. 프로젝트 개요 (Project Overview)",
+    title: "1. 프로젝트 개요",
     subtitle: "상품 정보를 '엔터티 간의 관계망'으로 재구성하여 AI 답변 채택률 극대화",
     type: 'project-overview',
     items: [
