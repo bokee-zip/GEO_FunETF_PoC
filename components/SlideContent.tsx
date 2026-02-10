@@ -248,32 +248,32 @@ const SlideContent: React.FC<{ slide: SlideData, index?: number, total?: number 
                 </div>
               )}
 
-              {/* Row 2: Content on Left, Image on Right */}
-              <div className="grid grid-cols-[1fr_1.3fr] gap-3 flex-1 min-h-0">
+              {/* Row 2: Content on Left, Image on Right - Height Reduced */}
+              <div className="grid grid-cols-[1fr_1.3fr] gap-3 h-[420px] min-h-0">
                 {/* Left: Scope & Hypothesis */}
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 h-full">
                   {slide.items?.slice(1).map((item, idx) => (
                     <div
                       key={idx}
-                      className="glass-card p-5 rounded-[2rem] group flex flex-col premium-glow flex-1 min-h-0"
+                      className="glass-card p-4 rounded-[1.8rem] group flex flex-col premium-glow flex-1 min-h-0"
                     >
-                      <div className="mb-1.5 flex items-center justify-between">
-                        <span className="text-blue-400 font-black text-[9px] uppercase tracking-widest bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">Detail 0{idx + 2}</span>
+                      <div className="mb-1 flex items-center justify-between">
+                        <span className="text-blue-400 font-black text-[10px] uppercase tracking-widest bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">Detail 0{idx + 2}</span>
                       </div>
                       <div className="space-y-1.5 flex-1 flex flex-col min-h-0">
                         <div className="shrink-0">
-                          <h4 className="text-[19px] font-black text-slate-900 tracking-tight leading-tight">
+                          <h4 className="text-[24px] font-black text-slate-900 tracking-tight leading-tight">
                             {item.label}
                           </h4>
-                          <p className="text-[16px] font-black text-[#0055FF]">
+                          <p className="text-[20px] font-black text-[#0055FF]">
                             {item.value}
                           </p>
                         </div>
-                        <div className="space-y-1 pt-2 border-t border-slate-100 overflow-y-auto custom-scrollbar flex-1">
+                        <div className="space-y-1.5 pt-2 border-t border-slate-100 overflow-y-auto custom-scrollbar flex-1">
                           {item.details?.map((detail, dIdx) => (
                             <div key={dIdx} className="flex items-start gap-2.5">
-                              <CheckCircle2 size={14} className="text-[#0055FF]/30 mt-1 shrink-0" />
-                              <span className="text-[14px] font-bold text-slate-500 leading-snug group-hover:text-slate-900 transition-colors">{detail}</span>
+                              <CheckCircle2 size={16} className="text-[#0055FF]/30 mt-1 shrink-0" />
+                              <span className="text-[17px] font-bold text-slate-500 leading-snug group-hover:text-slate-900 transition-colors">{detail}</span>
                             </div>
                           ))}
                         </div>
