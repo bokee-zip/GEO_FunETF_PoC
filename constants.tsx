@@ -244,7 +244,7 @@ export const SLIDES: SlideData[] = [
           "테스트 쿼리 20개 선정 (추천, 보수율 등)",
           "ChatGPT, Perplexity, Gemini 인용률 측정",
           "경쟁 페이지 분석 (K-ETF, 네이버 증권 등)",
-          "산출물: 현업 고객 인터뷰 및 인용 현황 리포트"
+          "현업 고객 인터뷰 및 인용 현황 리포트"
         ]
       },
       {
@@ -253,7 +253,7 @@ export const SLIDES: SlideData[] = [
           "AI Summary 섹션 및 FAQ 구조 10개 추가",
           "엔터티 관계 문장 및 비교 테이블 제작",
           "이미지 Alt 태그 최적화",
-          "산출물: 콘텐츠 개편 가이드 및 최종 원고"
+          "콘텐츠 개편 가이드 및 최종 원고"
         ]
       },
       {
@@ -262,7 +262,7 @@ export const SLIDES: SlideData[] = [
           "JSON-LD 스키마 및 메타 태그 삽입",
           "Canonical URL 및 내부/외부 링크 정비",
           "페이지 로딩 속도 최적화 (Web Vitals)",
-          "산출물: 기술 구현 보고서 + 스키마 검증 결과"
+          "기술 구현 보고서 + 스키마 검증 결과"
         ]
       },
       {
@@ -271,7 +271,7 @@ export const SLIDES: SlideData[] = [
           "주간 모니터링 및 AI 인용률 변화 추적",
           "Referral Traffic (GA4) 및 인용 정확도 분석",
           "최종 성과 보고서 작성 (4회차 모니터링 포함)",
-          "산출물: 주간 리포트 + 최종 성과 보고서"
+          "주간 리포트 + 최종 성과 보고서"
         ]
       }
     ]
