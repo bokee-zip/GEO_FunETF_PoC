@@ -217,9 +217,9 @@ const SlideContent: React.FC<{ slide: SlideData, index?: number, total?: number 
       case 'project-overview':
         return (
           <div className="h-full flex flex-col space-y-3">
-            <div className="flex flex-col">
-              <h2 className="section-title !mb-0 text-3xl">{slide.title}</h2>
-              <p className="section-subtitle !mb-0 text-lg">{slide.subtitle}</p>
+            <div className="flex flex-col space-y-2">
+              <h2 className="section-title">{slide.title}</h2>
+              <p className="section-subtitle">{slide.subtitle}</p>
             </div>
 
             <div className="flex-1 flex flex-col gap-3 min-h-0">
