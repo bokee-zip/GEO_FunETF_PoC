@@ -235,7 +235,7 @@ export const SLIDES: SlideData[] = [
   {
     id: 50,
     title: "4. 단계별 POC 로드맵",
-    subtitle: "진단에서 성과 추적까지의 8주 집중 POC 타임라인",
+    subtitle: "진단에서 성과 추적까지의 7주 집중 POC 타임라인",
     type: 'roadmap-cycle',
     items: [
       {
@@ -248,7 +248,7 @@ export const SLIDES: SlideData[] = [
         ]
       },
       {
-        label: "2단계: 최적화 (Week 2-3)",
+        label: "2단계: 최적화 (Week 2)",
         details: [
           "AI Summary 섹션 및 FAQ 구조 10개 추가",
           "엔터티 관계 문장 및 비교 테이블 제작",
@@ -257,7 +257,7 @@ export const SLIDES: SlideData[] = [
         ]
       },
       {
-        label: "3단계: 구현 (Week 4)",
+        label: "3단계: 구현 (Week 3)",
         details: [
           "JSON-LD 스키마 및 메타 태그 삽입",
           "Canonical URL 및 내부/외부 링크 정비",
@@ -266,7 +266,7 @@ export const SLIDES: SlideData[] = [
         ]
       },
       {
-        label: "4단계: 검증 (Week 5-8)",
+        label: "4단계: 검증 (Week 4-7)",
         details: [
           "주간 모니터링 및 AI 인용률 변화 추적",
           "Referral Traffic (GA4) 및 인용 정확도 분석",

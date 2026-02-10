@@ -803,22 +803,22 @@ const SlideContent: React.FC<{ slide: SlideData, index?: number, total?: number 
               </div>
             </div>
 
-            {/* Timeline UI - 8 Weeks (2 Months) */}
+            {/* Timeline UI - 7 Weeks */}
             <div className="glass-card rounded-[3.5rem] p-8 premium-glow">
-              <div className="grid grid-cols-8 gap-0 border-b border-slate-100 mb-6">
+              <div className="grid grid-cols-7 gap-0 border-b border-slate-100 mb-6">
                 <div className="col-span-4 text-center py-3 text-slate-300 font-black text-[16px] uppercase tracking-[0.3em] border-r border-slate-50">MONTH 01</div>
-                <div className="col-span-4 text-center py-3 text-slate-300 font-black text-[16px] uppercase tracking-[0.3em]">MONTH 02</div>
+                <div className="col-span-3 text-center py-3 text-slate-300 font-black text-[16px] uppercase tracking-[0.3em]">MONTH 02</div>
               </div>
-              <div className="grid grid-cols-8 gap-0 mb-8">
-                {Array.from({ length: 8 }).map((_, i) => (
+              <div className="grid grid-cols-7 gap-0 mb-8">
+                {Array.from({ length: 7 }).map((_, i) => (
                   <div key={i} className="text-center text-[13px] font-black text-slate-400">WEEK {i + 1}</div>
                 ))}
               </div>
 
               {/* Phase Bars aligned with content */}
-              <div className="grid grid-cols-8 gap-3 px-2">
+              <div className="grid grid-cols-7 gap-3 px-2">
                 <div className="col-span-1 glass-card-sm py-4 rounded-2xl flex items-center justify-center text-[#0055FF] bg-blue-50/80 font-black text-[16px] shadow-md border-2 border-[#0055FF]/20">현황 진단</div>
-                <div className="col-span-2 glass-card-sm py-4 rounded-2xl flex items-center justify-center text-[#0055FF] bg-blue-50/80 font-black text-[16px] shadow-md border-2 border-[#0055FF]/20">콘텐츠 최적화</div>
+                <div className="col-span-1 glass-card-sm py-4 rounded-2xl flex items-center justify-center text-[#0055FF] bg-blue-50/80 font-black text-[16px] shadow-md border-2 border-[#0055FF]/20">콘텐츠 최적화</div>
                 <div className="col-span-1 glass-card-sm py-4 rounded-2xl flex items-center justify-center text-[#0055FF] bg-blue-50/80 font-black text-[16px] shadow-md border-2 border-[#0055FF]/20">기술 구현</div>
                 <div className="col-span-4 glass-card-sm py-4 rounded-2xl flex items-center justify-center text-[#0055FF] bg-blue-50/80 font-black text-[16px] shadow-md border-2 border-[#0055FF]/20">성과 검증 및 추적</div>
               </div>
