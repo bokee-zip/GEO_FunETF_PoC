@@ -244,7 +244,7 @@ export const SLIDES: SlideData[] = [
           "테스트 쿼리 20개 선정 (추천, 보수율 등)",
           "ChatGPT, Perplexity, Gemini 인용률 측정",
           "경쟁 페이지 분석 (K-ETF, 네이버 증권 등)",
-          "산출물: AI 인용 현황 분석 리포트"
+          "산출물: 현업 고객 인터뷰 및 인용 현황 리포트"
         ]
       },
       {
