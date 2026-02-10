@@ -216,31 +216,31 @@ const SlideContent: React.FC<{ slide: SlideData, index?: number, total?: number 
 
       case 'project-overview':
         return (
-          <div className="h-full flex flex-col space-y-4">
-            <div className="flex flex-col space-y-1">
-              <h2 className="section-title !mb-0">{slide.title}</h2>
-              <p className="section-subtitle !mb-0">{slide.subtitle}</p>
+          <div className="h-full flex flex-col space-y-3">
+            <div className="flex flex-col">
+              <h2 className="section-title !mb-0 text-3xl">{slide.title}</h2>
+              <p className="section-subtitle !mb-0 text-lg">{slide.subtitle}</p>
             </div>
 
-            <div className="flex-1 flex flex-col gap-4 min-h-0">
-              {/* Row 1: Objective (Full Width) - Compacted */}
+            <div className="flex-1 flex flex-col gap-3 min-h-0">
+              {/* Row 1: Objective (Full Width) - Ultra Compact */}
               {slide.items?.[0] && (
-                <div className="glass-card p-6 rounded-[2rem] flex items-center justify-between group hover:bg-white/90 transition-colors">
-                  <div className="flex items-center gap-6">
-                    <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-[#0055FF] group-hover:scale-110 transition-transform">
-                      <Target size={32} />
+                <div className="glass-card p-4 rounded-[1.5rem] flex items-center justify-between group hover:bg-white/90 transition-colors">
+                  <div className="flex items-center gap-5">
+                    <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-[#0055FF] group-hover:scale-110 transition-transform">
+                      <Target size={28} />
                     </div>
-                    <div className="space-y-1">
-                      <span className="text-blue-400 font-black text-[14px] uppercase tracking-widest bg-blue-500/10 px-3 py-0.5 rounded-full border border-blue-500/20">Primary Goal</span>
-                      <h4 className="text-2xl font-black text-slate-900 tracking-tight">{slide.items[0].label}</h4>
+                    <div className="space-y-0.5">
+                      <span className="text-blue-400 font-black text-[12px] uppercase tracking-widest bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">Primary Goal</span>
+                      <h4 className="text-xl font-black text-slate-900 tracking-tight">{slide.items[0].label}</h4>
                     </div>
                   </div>
-                  <div className="flex items-center gap-10 mr-4">
+                  <div className="flex items-center gap-8 mr-4">
                     <div className="text-right">
-                      <p className="text-[28px] font-black text-[#0055FF] leading-none mb-2">{slide.items[0].value}</p>
+                      <p className="text-[24px] font-black text-[#0055FF] leading-none mb-1">{slide.items[0].value}</p>
                       <div className="flex gap-2 justify-end">
                         {slide.items[0].details?.map((detail, dIdx) => (
-                          <span key={dIdx} className="text-slate-500 font-bold text-[14px] bg-white/50 px-3 py-1 rounded-full border border-white whitespace-nowrap">{detail}</span>
+                          <span key={dIdx} className="text-slate-500 font-bold text-[12px] bg-white/50 px-2 py-0.5 rounded-full border border-white whitespace-nowrap">{detail}</span>
                         ))}
                       </div>
                     </div>
@@ -249,31 +249,31 @@ const SlideContent: React.FC<{ slide: SlideData, index?: number, total?: number 
               )}
 
               {/* Row 2: Content on Left, Image on Right */}
-              <div className="grid grid-cols-[1fr_1.2fr] gap-4 flex-1 min-h-0">
+              <div className="grid grid-cols-[1fr_1.3fr] gap-3 flex-1 min-h-0">
                 {/* Left: Scope & Hypothesis */}
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-3">
                   {slide.items?.slice(1).map((item, idx) => (
                     <div
                       key={idx}
-                      className="glass-card p-6 rounded-[2.5rem] group flex flex-col premium-glow flex-1 min-h-0"
+                      className="glass-card p-5 rounded-[2rem] group flex flex-col premium-glow flex-1 min-h-0"
                     >
-                      <div className="mb-2 flex items-center justify-between">
-                        <span className="text-blue-400 font-black text-[10px] uppercase tracking-widest bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">Detail 0{idx + 2}</span>
+                      <div className="mb-1.5 flex items-center justify-between">
+                        <span className="text-blue-400 font-black text-[9px] uppercase tracking-widest bg-blue-50 px-2 py-0.5 rounded-full border border-blue-100">Detail 0{idx + 2}</span>
                       </div>
-                      <div className="space-y-2 flex-1 flex flex-col min-h-0">
+                      <div className="space-y-1.5 flex-1 flex flex-col min-h-0">
                         <div className="shrink-0">
-                          <h4 className="text-[22px] font-black text-slate-900 tracking-tight leading-tight">
+                          <h4 className="text-[19px] font-black text-slate-900 tracking-tight leading-tight">
                             {item.label}
                           </h4>
-                          <p className="text-[18px] font-black text-[#0055FF]">
+                          <p className="text-[16px] font-black text-[#0055FF]">
                             {item.value}
                           </p>
                         </div>
-                        <div className="space-y-1.5 pt-3 border-t border-slate-100 overflow-y-auto custom-scrollbar flex-1">
+                        <div className="space-y-1 pt-2 border-t border-slate-100 overflow-y-auto custom-scrollbar flex-1">
                           {item.details?.map((detail, dIdx) => (
-                            <div key={dIdx} className="flex items-start gap-3">
-                              <CheckCircle2 size={16} className="text-[#0055FF]/30 mt-1 shrink-0" />
-                              <span className="text-[15px] font-bold text-slate-500 leading-snug group-hover:text-slate-900 transition-colors">{detail}</span>
+                            <div key={dIdx} className="flex items-start gap-2.5">
+                              <CheckCircle2 size={14} className="text-[#0055FF]/30 mt-1 shrink-0" />
+                              <span className="text-[14px] font-bold text-slate-500 leading-snug group-hover:text-slate-900 transition-colors">{detail}</span>
                             </div>
                           ))}
                         </div>
@@ -283,15 +283,15 @@ const SlideContent: React.FC<{ slide: SlideData, index?: number, total?: number 
                 </div>
 
                 {/* Right: Product Page Screenshot Area */}
-                <div className="glass-card rounded-[2.5rem] overflow-hidden premium-glow relative group flex items-start justify-center bg-white border border-slate-100 h-full">
+                <div className="glass-card rounded-[2rem] overflow-hidden premium-glow relative group flex items-start justify-center bg-white border border-slate-100 h-full">
                   <img
                     src="/KODEX S&P 500.png"
                     alt="KODEX 미국S&P500 상세페이지"
                     className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent">
-                    <div className="px-4 py-1.5 bg-[#0055FF] text-white text-[12px] font-black rounded-full shadow-lg inline-block">
-                      KODEX 미국S&P500 최적화 대상 페이지
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+                    <div className="px-3 py-1 bg-[#0055FF] text-white text-[10px] font-black rounded-full shadow-lg inline-block">
+                      KODEX 최적화 대상 페이지
                     </div>
                   </div>
                 </div>
