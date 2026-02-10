@@ -3,12 +3,122 @@
 @tailwind utilities;
 
 @layer base {
-  html, body {
+
+  html,
+  body {
     margin: 0;
     padding: 0;
     overflow: hidden;
     height: 100%;
     font-family: 'Pretendard', sans-serif;
     letter-spacing: -0.05em;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+}
+
+@layer components {
+  .samsung-blue-text {
+    @apply text-[#0055FF];
+  }
+
+  .samsung-blue-bg {
+    @apply bg-[#0055FF];
+  }
+
+  .samsung-blue-border {
+    @apply border-[#0055FF];
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-2xl border border-white/50;
+    box-shadow: 0 20px 40px -15px rgba(0, 85, 255, 0.08);
+  }
+
+  .glass-card-light {
+    @apply bg-white/80 backdrop-blur-3xl border border-white shadow-xl;
+  }
+
+  .glass-card-dark {
+    @apply bg-slate-900/90 backdrop-blur-xl border border-slate-700/50 shadow-2xl;
+  }
+
+  .section-title {
+    @apply text-[40px] font-black tracking-tighter text-slate-900 mb-2 leading-none;
+  }
+
+  .section-subtitle {
+    @apply text-[20px] font-bold text-slate-400 mb-8 uppercase tracking-widest;
+  }
+
+  .premium-glow {
+    @apply relative overflow-hidden;
+  }
+
+  .premium-glow::after {
+    content: '';
+    @apply absolute inset-[-100%] bg-gradient-to-r from-transparent via-white/20 to-transparent rotate-45 transition-transform duration-[1500ms];
+  }
+
+  .premium-glow:hover::after {
+    @apply translate-x-full;
+  }
+
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-200 rounded-full hover:bg-slate-300;
+  }
+}
+
+@layer utilities {
+  .text-glow-blue {
+    text-shadow: 0 0 10px rgba(0, 85, 255, 0.15);
+  }
+
+  .bg-premium-mesh {
+    background-color: #f8fafc;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(0, 85, 255, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(0, 55, 126, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(0, 85, 255, 0.08) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(0, 55, 126, 0.05) 0px, transparent 50%),
+      linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    position: relative;
+  }
+
+  .bg-premium-mesh::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  @keyframes mesh-pulse {
+
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-mesh {
+    animation: mesh-pulse 15s ease-in-out infinite;
   }
 }

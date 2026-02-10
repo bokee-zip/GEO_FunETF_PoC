@@ -3,7 +3,7 @@ export interface SlideData {
   id: number;
   title: string;
   subtitle?: string;
-  type: 'title' | 'content' | 'flow' | 'table' | 'split' | 'dashboard' | 'checklist' | 'pillars' | 'pipeline' | 'full-image' | 'roadmap' | 'gantt' | 'service-loop' | 'paradigm-shift' | 'ai-mechanism' | 'comparison' | 'image-grid' | 'scale-up' | 'master-plan' | 'dual-writing';
+  type: 'title' | 'table' | 'pillars' | 'pipeline' | 'image-grid' | 'scale-up' | 'master-plan' | 'dual-writing' | 'project-overview' | 'ai-summary' | 'content-structure' | 'technical-geo' | 'message-hierarchy' | 'roadmap-cycle';
   content?: string | string[];
   items?: {
     label: string;

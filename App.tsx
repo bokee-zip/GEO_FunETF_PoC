@@ -61,7 +61,7 @@ const App: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="bg-[#F5F3EF] text-[#4A362D] font-['Pretendard'] overflow-x-hidden overflow-y-auto h-screen snap-y snap-mandatory scroll-smooth"
+      className="bg-premium-mesh text-slate-900 font-['Pretendard'] overflow-x-hidden overflow-y-auto h-screen snap-y snap-mandatory scroll-smooth"
     >
       {/* Main Content Area - Multi-section single scroll */}
       <main className="w-full">
@@ -69,10 +69,15 @@ const App: React.FC = () => {
           <section
             key={slide.id}
             ref={(el) => (sectionRefs.current[idx] = el)}
-            className="w-full min-h-screen flex items-center justify-center p-12 border-b border-[#D6C7B9]/30 snap-start snap-always shrink-0"
+            className="w-full min-h-screen flex items-center justify-center p-12 border-b border-slate-100 snap-start snap-always shrink-0 relative"
           >
             <div className="max-w-[1440px] w-full mx-auto py-10">
-              <SlideContent slide={slide} />
+              <SlideContent slide={slide} index={idx} total={SLIDES.length} />
+            </div>
+
+            {/* Corner Page Number */}
+            <div className="absolute bottom-8 right-8 text-slate-500 font-medium text-sm tracking-widest">
+              {idx + 1}
             </div>
           </section>
         ))}
